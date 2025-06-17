@@ -330,151 +330,46 @@
         <div class="container" id="practice">
           <div class="title">Practice</div>
           <div class="content">
-<style>  
-    .contain {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .box, .output-box {
-      border: 2px dashed #8e8e8e;
-      width: 320px;
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      margin: 10px;
-      padding: 10px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      position: relative;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-
-    .output-box {
-      overflow-y: auto;
-      overflow-x: hidden;
-      text-align: center;
-      padding: 24px 14px 14px 14px;
-      box-sizing: border-box;
-      white-space: pre-wrap;
-    }
-
-    .box.dragover {
-      background-color: #e0e7ff;
-    }
-
-    .box:hover, .output-box:hover {
-      transform: scale(1.02);
-    }
-
-    .box img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 5px;
-    }
-
-    .upload-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .upload-icon {
-      font-size: 36px;
-      color: #888;
-    }
-
-    .box input[type="file"] {
-      margin-top: 10px;
-    }
-
-    button {
-      margin: 10px auto;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      display: block;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .scorecard {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #ffffff;
-      border: 2px solid #28a745;
-      border-radius: 10px;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      font-size: 19px;
-      font-weight: bold;
-      color: #28a745;
-      text-align: center;
-    }
-
-    h3 {
-      margin-bottom: 5px;
-      color: #444;
-    }
-  </style>
-
-  <div class="contain">
-    <div class="box" id="box1">
-      <div class="upload-content" id="upload-content1">
-        <div class="upload-icon">📤</div>
-        <h3 id="label1">Upload Image 1</h3>
-        <input type="file" id="image1" accept="image/*" style="display: none;">
-      </div>
-      <img id="preview1" style="display:none;">
-    </div>
-    <div class="box" id="box2">
-      <div class="upload-content" id="upload-content2">
-        <div class="upload-icon">📤</div>
-        <h3 id="label2">Upload Image 2</h3>
-        <input type="file" id="image2" accept="image/*" style="display: none;">
-      </div>
-      <img id="preview2" style="display:none;">
-    </div>
-  </div>
-
-  <button onclick="extractText()">Extract Text</button>
-
-  <div class="contain">
-    <div class="output-box" id="text1">Extracted Text 1</div>
-    <div class="output-box" id="text2">Extracted Text 2</div>
-  </div>
-
-  <button onclick="preprocessText()">Preprocess Text</button>
-
-  <div class="contain">
-    <div class="output-box" id="pre1">Preprocessed Text 1</div>
-    <div class="output-box" id="pre2">Preprocessed Text 2</div>
-  </div>
-
-  <button onclick="calculateSimilarity()">Calculate Similarity</button>
-
-  <div class="scorecard" id="similarityResult">Similarity: Not Calculated</div>
-
-  <script>
-    const imageInputs = [document.getElementById('image1'), document.getElementById('image2')];
+          <div class="contain">
+            <div class="box" id="box1">
+              <div class="upload-content" id="upload-content1">
+                <div class="upload-icon">📤</div>
+                <h3 id="label1">Upload Image 1</h3>
+                <input type="file" id="image1" accept="image/*" style="display: none;">
+              </div>
+              <img id="preview1" style="display:none;">
+            </div>
+            <div class="box" id="box2">
+              <div class="upload-content" id="upload-content2">
+                <div class="upload-icon">📤</div>
+                <h3 id="label2">Upload Image 2</h3>
+                <input type="file" id="image2" accept="image/*" style="display: none;">
+              </div>
+              <img id="preview2" style="display:none;">
+            </div>
+          </div>
+        
+          <button onclick="extractText()">Extract Text</button>
+        
+          <div class="contain">
+            <div class="output-box" id="text1">Extracted Text 1</div>
+            <div class="output-box" id="text2">Extracted Text 2</div>
+          </div>
+        
+          <button onclick="preprocessText()">Preprocess Text</button>
+        
+          <div class="contain">
+            <div class="output-box" id="pre1">Preprocessed Text 1</div>
+            <div class="output-box" id="pre2">Preprocessed Text 2</div>
+          </div>
+        
+          <button onclick="calculateSimilarity()">Calculate Similarity</button>
+        
+          <div class="scorecard" id="similarityResult">Similarity: Not Calculated</div>
+        </div></div>
+        
+          <script>
+            const imageInputs = [document.getElementById('image1'), document.getElementById('image2')];
     const previews = [document.getElementById('preview1'), document.getElementById('preview2')];
     const uploadContents = [document.getElementById('upload-content1'), document.getElementById('upload-content2')];
     const texts = [document.getElementById('text1'), document.getElementById('text2')];
@@ -605,16 +500,44 @@ function calculateSimilarity() {
 
   document.getElementById('similarityResult').innerText = `Similarity: ${Math.round(similarity * 100)}%`;
 }
-
-
-  </script>
+</script>
 
 
         <!-- Results -->
         <div class="container" id="result">
           <div class="title">Result</div>
           <div class="content">
-            <p>Result of your vlab</p>
+            <p><br>
+    After completing all stages of the experiment—text extraction, preprocessing, vectorization, and similarity computation—the system generates a final similarity score that quantifies the textual resemblance between the two uploaded images.
+  </p>
+
+  <p>
+    The result reflects how closely the extracted texts from both images match in terms of vocabulary and contextual meaning. This evaluation is purely based on textual content, independent of image properties such as resolution, color, or layout.
+  </p><br>
+
+  <ol>
+    <li><b>Text Extraction:</b> Text is extracted from both images using OCR.space API. This API supports printed and partially handwritten text, improving accuracy over traditional OCR libraries in real-world scenarios.</li>
+
+    <li><b>Text Preprocessing:</b> The extracted raw text is cleaned and normalized by applying NLP techniques like lowercasing, tokenization, stopword removal, and punctuation stripping. This step ensures consistency and removes irrelevant noise.</li>
+
+    <li><b>Vector Representation (TF-IDF):</b> The processed text is converted into TF-IDF vectors, representing the importance of each word within the text and across both documents.</li>
+
+    <li><b>Similarity Score (Cosine Similarity):</b> Finally, cosine similarity is computed between the two TF-IDF vectors. The resulting value lies between 0 and 1:
+      <ul>
+        <li><b>1:</b> Identical or near-identical text</li>
+        <li><b>0:</b> Completely unrelated text</li>
+        <li><b>Intermediate values:</b> Partially similar content</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p>
+    <b>Example Output:</b> If Image 1 contains “Artificial Intelligence is transforming the world” and Image 2 contains “AI is changing the world”, the system might return a similarity score around <code>0.74</code>, reflecting significant overlap in meaning despite lexical differences.
+  </p>
+
+  <p>
+    This similarity score provides a quantitative basis for comparing image-based documents and can be interpreted in various domains such as academic document analysis, automated review systems, and legal document matching.
+  </p>
           </div>
         </div>
 
@@ -654,22 +577,36 @@ function calculateSimilarity() {
             <h3>Students</h3>
             <ul class="ref-list">
               <li>
-                <a href="profile url if you have" rel="noopener" target="_blank"
-                  ><span>Name and Course of each team member</span></a
+                <a href="https://www.linkedin.com/in/kriti-misra-b6014a29b" rel="noopener" target="_blank"
+                  ><span>Kriti Misra, BSc (Hons) Computer Science (2024-25)</span></a
+                >
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/639himanshuyadav/" rel="noopener" target="_blank"
+                  ><span>Himanshu Yadav, BSc (Hons) Computer Science (2024-25)</span></a
                 >
               </li>
             </ul>
             <h3>Mentors</h3>
             <ul class="ref-list">
-              <li><span> Mentor Name</span></li>
+              <li><span>Prof. Sharanjit Kaur, Department of Computer Science</span></li>
             </ul>
             <h3>Tools Used</h3>
             <ul class="tools-list">
               <li>
-                <span> Add tools used here </span>
+                <span>OCR.space API - for text extraction </span>
+              </li>
+              <li>
+                <span>NLTK (Natural Language Toolkit) library - for text preprocessing </span>
+              </li>
+              <li>
+                <span>TfidfVectorizer, cosine_similarity - for calculating similarity </span>
               </li>
               <li>
                 <span>Vanilla HTML, CSS, JS - for creating the web page</span>
+              </li>
+              <li>
+                <span>Flask - for backend </span>
               </li>
             </ul>
           </div>
