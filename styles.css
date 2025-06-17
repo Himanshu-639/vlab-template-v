@@ -200,7 +200,7 @@ body {
 
 .container {
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
   width: calc(100vw - 18vw);
@@ -220,11 +220,33 @@ body {
 
 /* General List Styling for Theory and Procedure Containers you may adjust as per your need */
 
+/* Bold element clarity */
+.content b {
+  color: #2c3e50;
+}
+
+/* Highlight keywords */
+.content li b {
+  color: #1c2c3c;
+}
+
+/*Theory Style*/
+#theory span, #procedure span {
+  display: block;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  color: #0859b6;
+  font-weight: 600;
+}
+
+
 /* Remove default list styles */
 #theory ul, #procedure ul, #theory ol, #procedure ol {
   list-style: none; /* Remove default bullet points and numbers */
   padding-left: 25px; /* Initial indentation for all lists */
-  margin-bottom: 20px; /* Spacing between lists */
+  margin-bottom: 10px; /* Spacing between lists */
+  margin-left: 20px;
   list-style-position: inside; /* Align list markers with text */
   font-size: 1rem; /* Standard font size for readability */
   color: #333; /* Standard dark color for text */
@@ -232,8 +254,8 @@ body {
 
 /* List Item Styling */
 #theory li, #procedure li {
-  line-height: 1.6; /* Increased line height for better readability */
-  margin-bottom: 12px; /* Spacing between list items */
+  line-height: 1.5; /* Increased line height for better readability */
+  margin-bottom: 10px; /* Spacing between list items */
   position: relative; /* Positioning for custom bullets/numbers */
 }
 
@@ -244,8 +266,7 @@ body {
   left: -20px; /* Adjusting position of the bullet */
   color: #474a4d; /* Dark blue for professional look */
   font-size: 1.4rem; /* Moderate size for the bullet */
-  top: 50%; /* Align bullet vertically */
-  transform: translateY(-50%); /* Corrects vertical alignment */
+  transform: translateY(-20%); /* Corrects vertical alignment */
 }
 
 /* Ordered List (ol) Numbering Styling */
@@ -255,9 +276,7 @@ body {
   left: -30px; /* Space between number and text */
   color: #474a4d; /* Standard blue color for numbers */
   font-weight: bold; /* Bold numbering */
-  font-size: 1.2rem; /* Slightly larger number */
-  top: 50%; /* Align number vertically */
-  transform: translateY(-50%); /* Corrects vertical alignment */
+  font-size: 1rem; /* Slightly larger number */
 }
 
 /* Nested List Styling */
@@ -269,12 +288,21 @@ body {
   font-size: 1rem; /* Slightly smaller text for nested items */
 }
 
-
-
 /* Link Styling within List Items */
 #theory li a, #procedure li a {
   text-decoration: none; /* Remove underline */
   color: inherit; /* Inherit text color */
+}
+
+/* Formula block styling */
+#theory code, #procedure code {
+  display: inline-block;
+  background-color: #eef1f4;
+  color: #2d3436;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
 }
 
 
@@ -610,3 +638,9 @@ input[type="radio"] {
   }
 }
 
+
+
+
+
+
+/*Practice tab Styling*/

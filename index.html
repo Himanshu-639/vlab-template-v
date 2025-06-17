@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="brief description" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add your V-Lab Title here</title>
+    <title>Text Based Image Comparison</title>
     <link rel="icon" href="images/vlab-logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -42,7 +42,7 @@
     </header>
 
     <div class="yourvlabtitle">
-      <h1>your vlab title</h1>
+      <h1>Text Based Image Comparison</h1>
     </div>
 
     <div class="pageview">
@@ -97,7 +97,7 @@
         <div class="container" id="aim">
           <div class="title">Aim</div>
           <div class="content">
-            <p>The aim of your Virtual lab</p>
+            <p>The aim of this Virtual Lab is to demonstrate the process of extracting text from two images using OCR and comparing their content using Natural Language Processing techniques to determine their textual similarity</p>
           </div>
         </div>
 
@@ -105,31 +105,119 @@
         <div class="container" id="theory">
           <div class="title">Theory & Applications</div>
           <div class="content">
-            <p>
-              This section covers the fundamental theories and applications of
-              the concept.
-            </p>
+          <p><br>
+            This experiment demonstrates the integration of <b>Optical Character Recognition (OCR)</b> and 
+            <b>Natural Language Processing (NLP)</b> techniques to compute the textual similarity between 
+            two images. The process involves extracting text from image files, preprocessing the text, 
+            converting it into a weighted vector representation using <b>TF-IDF</b>, and finally measuring 
+            their similarity using <b>Cosine Similarity</b>.
+          </p>
+        
+          <span>Key Concepts</span>
+          <ul>
+            <li><b>Optical Character Recognition (OCR)</b>
+              <ul>
+                <li><b>Definition:</b> OCR is a computer vision technique used to identify and extract 
+                  alphanumeric text from images using pattern recognition, convolutional models, or 
+                  deep learning techniques.</li>
+                <li><b>Functionality:</b> It converts pixel-level image data into text by recognizing 
+                  character shapes and structures.</li>
+                <li><b>In this project:</b> OCR is performed using the <b>OCR.space API</b>, which provides 
+                  high-accuracy text extraction, including support for some handwritten content. 
+                  While open-source libraries like <b>Tesseract</b> and <b>EasyOCR</b> can also be used 
+                  for this task, they are primarily optimized for printed or clearly structured text 
+                  and often underperform on real-world handwritten images. OCR.space gives better results 
+                  due to its training on diverse datasets.</li>
+              </ul>
+            </li>
+          
+            <li><b>Natural Language Processing (NLP)</b>
+              <ul>
+                <li><b>Definition:</b> NLP refers to the set of algorithms and processes that allow machines 
+                  to understand, interpret, and manipulate human language.</li>
+                <li><b>Text Preprocessing:</b> A crucial stage that prepares raw text for similarity analysis. 
+                  It includes:
+                  <ul>
+                    <li><b>Lowercasing:</b> Converts all characters to lowercase to standardize the text.</li>
+                    <li><b>Tokenization:</b> The process of breaking text into smaller units called tokens 
+                      (typically words). For example, "Text similarity project" → ["text", "similarity", "project"]</li>
+                    <li><b>Stopword Removal:</b> Removes common words (like “is”, “the”, “of”) that carry little 
+                      semantic weight and don't contribute significantly to similarity measures.</li>
+                    <li><b>Punctuation & Special Characters:</b> Stripped to avoid irrelevant variation 
+                      between texts.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          
+            <li><b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>
+              <ul>
+                <li><b>Purpose:</b> Converts textual data into numerical feature vectors that reflect term 
+                  importance in a document relative to a collection.</li>
+                <li><b>Term Frequency (TF):</b> Measures how frequently a term appears in a document:
+                  <br><code>TF(t) = (Number of times term t appears in a document) / (Total terms in document)</code>
+                </li>
+                <li><b>Inverse Document Frequency (IDF):</b> Reduces the weight of common terms by:
+                  <br><code>IDF(t) = log(Total number of documents / Number of documents with term t)</code>
+                </li>
+                <li><b>TF-IDF Score:</b> 
+                  <br><code>TF-IDF(t) = TF(t) × IDF(t)</code>
+                </li>
+                <li>This representation allows us to model documents as vectors in a high-dimensional space 
+                  where each dimension corresponds to a term’s weight.</li>
+              </ul>
+            </li>
+          
+            <li><b>Cosine Similarity</b>
+              <ul>
+                <li><b>Definition:</b> Cosine similarity is a metric used to measure how similar two 
+                  vectors are, regardless of their magnitude.</li>
+                <li><b>Mathematical Formula:</b>
+                  <br><code>
+                  Cosine Similarity = (A · B) / (||A|| × ||B||)
+                  </code><br>
+                  where A and B are the TF-IDF vectors of two documents.
+                </li>
+                <li><b>Interpretation:</b> The result ranges from 0 to 1:
+                  <ul>
+                    <li>1 → identical direction → highly similar</li>
+                    <li>0 → orthogonal → completely dissimilar</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
 
-            <span>Key Concepts</span>
-            <ul>
-              <li>Fundamentals of Data Structures</li>
-              <li>
-                Algorithms and Their Applications
-                <ul>
-                  <li>Sorting Algorithms</li>
-                  <li>Searching Algorithms</li>
-                </ul>
-              </li>
-              <li>Time Complexity Analysis</li>
-            </ul>
-
-            <span>Applications in Real World</span>
-            <ol>
-              <li>Application of Sorting Algorithms in Search Engines</li>
-              <li>Machine Learning Algorithms in Predictive Analytics</li>
-              <li>Data Structures in Web Development</li>
-            </ol>
-
+          <span>Applications in Real World</span>
+          <ol>
+            <li>
+              <b>Text-Based Image Comparison for Academic Integrity:</b>
+              Educational platforms can use this system to compare scanned handwritten or printed assignments 
+              to detect content overlap using cosine similarity on preprocessed TF-IDF vectors — useful for 
+              plagiarism detection where traditional text matching tools fail.
+            </li>
+            <li>
+              <b>Duplicate Document Detection in Digital Archives:</b>
+              In large archives of scanned documents (legal files, forms, contracts), this technique can identify 
+              duplicate or near-duplicate text content across differently formatted or handwritten copies by 
+              comparing their TF-IDF representations.
+            </li>
+            <li>
+              <b>Automated Metadata Tagging for Scanned Content:</b>
+              When indexing a large number of scanned pages, NLP can be used to extract and summarize dominant 
+              terms using TF-IDF weights. These terms can be used to automatically generate tags or categories.
+            </li>
+            <li>
+              <b>Evidence Matching in Digital Forensics:</b>
+              Investigators can analyze and compare handwritten notes or printed letters using OCR and cosine similarity 
+              to find textual overlaps, especially when content is disguised or reformatted.
+            </li>
+            <li>
+              <b>Document Clustering and Organization:</b>
+              By generating TF-IDF vectors from scanned images, documents can be grouped into clusters 
+              (e.g., job applications, receipts, letters) based on textual similarity without manual sorting.
+            </li>
+          </ol>
           </div>
         </div>
 
@@ -137,27 +225,65 @@
         <div class="container" id="procedure">
           <div class="title">Procedure</div>
           <div class="content">
-            <p>
-              This section provides the steps and procedure for implementing the
-              concept discussed above.
-            </p>
-
-            <span>Steps for Sorting Algorithms</span>
             <ol>
-              <li>Choose the appropriate sorting algorithm based on data</li>
-              <li>Apply the sorting algorithm to the dataset</li>
-              <li>Analyze the time complexity and performance</li>
-            </ol>
+            <li><b>Upload Input Images</b>
+              <ol>
+                <li>Select two image files that contain textual content (e.g., typed documents, printed forms, or handwritten notes).</li>
+                <li>The interface provides two separate upload fields for Image 1 and Image 2.</li>
+              </ol>
+            </li>
+          
+            <li><b>Perform OCR on Uploaded Images</b>
+              <ol>
+                <li>Click the <i>"Extract Text"</i> button.</li>
+                <li>Each image is sent to the OCR.space API.</li>
+                <li>The API returns the extracted text for both images separately.</li>
+                <li>The extracted text is displayed on the screen for verification.</li>
+              </ol>
+            </li>
+          
+            <li><b>Preprocess the Extracted Text</b>
+              <ol>
+                <li>Click the <i>"Preprocess Text"</i> button.</li>
+                <li>The following preprocessing steps are applied to each extracted text:
+                  <ol>
+                    <li>Lowercasing</li>
+                    <li>Removing punctuation and special characters</li>
+                    <li>Tokenization (splitting text into words)</li>
+                    <li>Stopword removal (removing common words like "the", "and", "is")</li>
+                  </ol>
+                </li>
+                <li>The cleaned and tokenized text is then shown on the interface.</li>
+              </ol>
+            </li>
+          
+            <li><b>Vectorize the Text using TF-IDF</b>
+              <ol>
+                <li>The preprocessed texts from both images are converted into TF-IDF vectors.</li>
+                <li>Each term is assigned a numerical weight based on its importance in the document and rarity across documents.</li>
+              </ol>
+            </li>
+          
+            <li><b>Calculate Cosine Similarity</b>
+              <ol>
+                <li>Click the <i>"Calculate Similarity"</i> button.</li>
+                <li>Cosine Similarity is calculated using the TF-IDF vectors:
+                  <br><code>Cosine Similarity = (A · B) / (||A|| × ||B||)</code>
+                </li>
+                <li>A similarity score between 0 and 1 is computed and displayed.</li>
+                <li>The score indicates how similar the two images are based on their text content.</li>
+              </ol>
+            </li>
+          
+            <li><b>Interpret the Result</b>
+              <ol>
+                <li>A higher similarity score (close to 1) means the two texts are very similar or identical.</li>
+                <li>A lower score (close to 0) means the texts are largely different.</li>
+                <li>Students can upload different images to explore and analyze how text content affects similarity.</li>
+              </ol>
+            </li>
+          </ol>
 
-            <span>Steps for Implementing Search Algorithms</span>
-            <ul>
-              <li>Identify the data structure to be used</li>
-              <li>
-                Choose the best search algorithm (e.g., Linear Search, Binary
-                Search)
-              </li>
-              <li>Test the algorithm on various datasets</li>
-            </ul>
           </div>
         </div>
 
