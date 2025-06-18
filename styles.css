@@ -241,57 +241,39 @@ body {
 }
 
 
-/* Remove default list styles */
-#theory ul, #procedure ul, #theory ol, #procedure ol, #result ul, #result ol {
-  list-style: none; /* Remove default bullet points and numbers */
-  padding-left: 25px; /* Initial indentation for all lists */
-  margin-bottom: 10px; /* Spacing between lists */
+/* list styles  */
+
+#theory ul, #procedure ul, #result ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-bottom: 10px;
   margin-left: 20px;
-  list-style-position: inside; /* Align list markers with text */
-  font-size: 1rem; /* Standard font size for readability */
-  color: #333; /* Standard dark color for text */
+  list-style-position: inside;
+  font-size: 1rem;
+  color: #333;
 }
 
-/* List Item Styling */
+#theory ol, #procedure ol, #result ol {
+  list-style-type: decimal;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  list-style-position: inside;
+  font-size: 1rem;
+  color: #333;
+}
+
 #theory li, #procedure li, #result li {
-  line-height: 1.5; /* Increased line height for better readability */
-  margin-bottom: 10px; /* Spacing between list items */
-  position: relative; /* Positioning for custom bullets/numbers */
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
-/* Unordered List (ul) Bullet Styling */
-#theory ul li::before, #procedure ul li::before, #result ul li::before {
-  content: "\2022"; /* Unicode bullet character */
-  position: absolute;
-  left: -20px; /* Adjusting position of the bullet */
-  color: #474a4d; /* Dark blue for professional look */
-  font-size: 1.4rem; /* Moderate size for the bullet */
-  transform: translateY(-20%); /* Corrects vertical alignment */
-}
-
-/* Ordered List (ol) Numbering Styling */
-#theory ol li::before, #procedure ol li::before, #result ol li::before {
-  content: counter(list-item) ". "; /* Numeric list */
-  position: absolute;
-  left: -30px; /* Space between number and text */
-  color: #474a4d; /* Standard blue color for numbers */
-  font-weight: bold; /* Bold numbering */
-  font-size: 1rem; /* Slightly larger number */
-}
-
-/* Nested List Styling */
 #theory ul ul, #procedure ul ul, #theory ol ol, #procedure ol ol {
-  padding-left: 35px; /* Increased indentation for nested lists */
+  padding-left: 35px;
 }
 
 #theory ul ul li, #procedure ul ul li, #theory ol ol li, #procedure ol ol li {
-  font-size: 1rem; /* Slightly smaller text for nested items */
-}
-
-/* Link Styling within List Items */
-#theory li a, #procedure li a {
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit text color */
+  font-size: 1rem;
 }
 
 /* Formula block styling */
