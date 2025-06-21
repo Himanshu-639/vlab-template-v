@@ -250,3 +250,21 @@ const questions = [
   nextButton.addEventListener("click", checkAnswer);
   
   showQuestion();
+
+
+
+
+
+
+const buttons = document.querySelectorAll('.tab-bar button');
+    const sections = document.querySelectorAll('.transition-wrapper');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(targetId).classList.add('active');
+      });
+    });

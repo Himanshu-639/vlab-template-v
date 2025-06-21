@@ -627,6 +627,52 @@ input[type="radio"] {
 
 /*Practice tab Styling*/
 
+
+.tab-bar {
+      text-align: center;
+      margin-top: 30px;
+      display: flex;
+      align-self: center;
+      margin: 30px 0px;
+    }
+
+    .tab-bar button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 0 5px;
+      transition: 0.3s;
+    }
+
+    .tab-bar button:hover {
+      background-color: #45a049;
+    }
+
+    .transition-wrapper {
+      display: none;
+    }
+
+    .transition-wrapper.active {
+      display: block;
+    }
+
+    .step {
+      margin-bottom: 30px;
+    }
+
+    .step img {
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+    
+
+
 .contain {
       display: flex;
       justify-content: center;
