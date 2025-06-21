@@ -211,6 +211,15 @@ body {
   text-align: justify;
 }
 
+#practice.container {
+  padding: 15px !important;
+}
+
+#quiz.container {
+  text-align: center !important;
+}
+
+
 .container .title {
   font-size: 24px;
   font-weight: bold;
@@ -395,67 +404,97 @@ input[type="radio"] {
 }
 
 /* Quiz */
-#quiz {
-  text-align: center;
-  border-radius: 10px;
+.box {
+  margin: 0 auto;
   padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  text-align: center; 
+  max-width: 600px; /* Consolidated from below */
+  border-radius: 8px; /* Consolidated from below */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Consolidated from below */
 }
 
-#quiz .title {
+h2 {
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px; /* Consolidated from below */
+}
+
+h4 {
+  font-size: 14px;
+  color: #777;
 }
 
 #question {
   font-size: 18px;
-  margin-bottom: 10px;
-  color: #444;
+  margin: 20px;
 }
 
 .choices {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  align-items: center; /* Consolidated from below */
+  margin-top: 20px; /* Consolidated from below */
 }
 
 .choices .choice {
-  width: 100%;
-  max-width: 400px;
+  width: 100%; /* Consolidated from below */
+  max-width: 500px; /* Consolidated from below */
+  margin: 10px 0;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(12, 12, 12);
   border-radius: 6px;
-  background-color: white;
+  background-color: rgb(0, 0, 0); /* Consolidated from rgb(255, 255, 255) to rgb(0,0,0) as per later definition */
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-wrap: break-word;
 }
 
 .choices .choice:hover {
-  background-color: #007bff;
+  background-color: rgb(46, 132, 245);
   color: #fff;
 }
 
-.next-button, .save-button {
+button {
+  margin-top: 20px; /* Consolidated from below */
   padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
   background-color: #007bff;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-.next-button:hover {
+button:hover {
+  background-color: #6725d0;
+}
+
+.codes button,
+#next-btn {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+}
+
+.codes button:hover,
+#next-btn:hover,
+#searchbt:hover {
   background-color: #0056b3;
 }
 
+#next-btn {
+  margin-top: 30px; /* Kept specific margin-top for next-btn */
+}
+
+/* Retake button styles */
 #retake-btn {
   display: none;
   margin: 20px auto;
@@ -471,27 +510,6 @@ input[type="radio"] {
 #retake-btn:hover {
   background-color: #218838;
 }
-#quiz-report {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.quiz-report-question {
-  margin-bottom: 15px;
-}
-
-.quiz-report-question p {
-  font-weight: bold;
-}
-
-.quiz-report-question ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
 
 /* tnt */
 /* Lists styling */
@@ -623,182 +641,80 @@ input[type="radio"] {
 }
 
 
-
-
-
-
 /*Practice tab Styling*/
 
-
 .tab-bar {
-      text-align: center;
-      margin-top: 30px;
-      display: flex;
-      align-self: center;
-      margin: 30px 0px;
-    }
+  display: flex;
+  flex-wrap: wrap; /* allow buttons to wrap on small screens */
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+}
 
-    .tab-bar button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 25px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      margin: 0 5px;
-      transition: 0.3s;
-    }
+.tab-bar button {
+  padding: 8px 16px;
+  background-color: #3fb1f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  flex-shrink: 0; /* prevents buttons from shrinking too small */
+  transition: background-color 0.3s ease;
+  min-width: 120px; /* ensures good readability on small screens */
+}
 
-    .tab-bar button:hover {
-      background-color: #45a049;
-    }
+.tab-bar button:hover {
+  background-color: #2279f1;
+}
 
-    .transition-wrapper {
-      display: none;
-    }
+.tab-bar button.active-tab {
+  background-color: #0e55b9; /* darker shade */
+  color: white;
+}
 
-    .transition-wrapper.active {
-      display: block;
-    }
+.transition-wrapper {
+  display: none;
+}
 
-    .step {
-      margin-bottom: 30px;
-    }
+.transition-wrapper.active {
+  display: block;
+}
 
-    .step img {
-      width: 100%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
-    }
+
+/*Styling for Example tabs */
+.step {
+  background-color: #f7f7f7; /* fallback default */
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease-in-out;
+}
+
+#example1Wrapper .step:nth-child(odd) {
+  background-color: #e9f7fa; /* Light Blue (AliceBlue) */
+}
+
+#example1Wrapper .step:nth-child(even) {
+  background-color: #e8f5e9; /* Light Green */
+}
+
+.step img {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
     
-
-
-.contain {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .box, .output-box {
-      border: 2px dashed #8e8e8e;
-      width: 320px;
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      margin: 10px;
-      padding: 10px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      position: relative;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-
-    .output-box {
-      overflow-y: auto;
-      overflow-x: hidden;
-      text-align: center;
-      padding: 24px 14px 14px 14px;
-      box-sizing: border-box;
-      white-space: pre-wrap;
-    }
-
-    .box.dragover {
-      background-color: #e0e7ff;
-    }
-
-    .box:hover, .output-box:hover {
-      transform: scale(1.02);
-    }
-
-    .box img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 5px;
-    }
-
-    .upload-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .upload-icon {
-      font-size: 36px;
-      color: #888;
-    }
-
-    .box input[type="file"] {
-      margin-top: 10px;
-    }
-
-    button {
-      margin: 10px auto;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      display: block;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .scorecard {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #ffffff;
-      border: 2px solid #28a745;
-      border-radius: 10px;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      font-size: 19px;
-      font-weight: bold;
-      color: #28a745;
-      text-align: center;
-    }
-
-    h3 {
-      margin-bottom: 5px;
-      color: #444;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Style for images in example tab*/
-  
 .image-row {
   display: flex;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 20px 50px;
+  margin: 20px 0px;
 }
 
 .image-row img {
@@ -810,6 +726,12 @@ input[type="radio"] {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   object-fit: contain;
 }
+@media (max-width: 768px) {
+  .image-row img {
+    width: 100%;
+  }
+}
+
 
 /* Style for step comaprison */
 .processing-step {
@@ -831,10 +753,19 @@ input[type="radio"] {
 .step-box {
   flex: 1 1 48%;
   background-color: #f9f9f9;
-  padding: 15px 20px;
+  padding: 15px 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .step-box {
+    flex: 1 1 100%;
+  }
 }
 
 .step-box p {
@@ -847,7 +778,112 @@ input[type="radio"] {
 .step-box code {
   background-color: #f0f0f0;
   padding: 6px 8px;
-  display: inline-block;
+  display: block;
+  margin: 3px 0px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
 }
+
+/* Styling for Try Yourself Tab */
+.contain {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.box, .output-box {
+  border: 2px dashed #8e8e8e;
+  width: 320px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.output-box {
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  padding: 24px 14px 14px 14px;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+}
+.box.dragover {
+  background-color: #e0e7ff;
+}
+.box:hover, .output-box:hover {
+  transform: scale(1.02);
+}
+.box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.upload-icon {
+  font-size: 36px;
+  color: #888;
+}
+.box input[type="file"] {
+  margin-top: 10px;
+}
+button {
+  margin: 10px auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.scorecard {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 2px solid #28a745;
+  border-radius: 10px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-size: 19px;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+}
+h3 {
+  margin-bottom: 5px;
+  color: #444;
+}
+
+
+
+
+
+
+
