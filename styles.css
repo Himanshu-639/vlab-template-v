@@ -692,13 +692,37 @@ button:hover {
   margin-bottom: 25px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: background-color 0.3s ease-in-out;
+  display: none;
 }
 
-#example1Wrapper .step:nth-child(odd) {
+.step-container:first-of-type .step {
+  display: block;
+}
+
+.reveal-step-btn {
+  background-color: #42a845; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px auto;
+  display: none; /* already present in your code */
+}
+
+/* Optional: Hover effect */
+.reveal-step-btn:hover {
+  background-color: #2a822f;
+}
+
+
+#example1Wrapper .step-container:nth-of-type(odd) .step {
   background-color: #e9f7fa; /* Light Blue (AliceBlue) */
 }
 
-#example1Wrapper .step:nth-child(even) {
+#example1Wrapper .step-container:nth-of-type(even) .step {
   background-color: #e8f5e9; /* Light Green */
 }
 

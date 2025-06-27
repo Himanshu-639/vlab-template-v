@@ -221,3 +221,44 @@ buttons.forEach(button => {
     button.classList.add('active-tab');
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".reveal-step-btn");
+
+  buttons.forEach((button, index) => {
+    // Hide all buttons except the first one
+    if (index !== 0) {
+      button.style.display = "none";
+    } else {
+      button.style.display = "block";
+      button.style.margin = "20px auto";
+    }
+
+    // Attach click event to each button
+    button.addEventListener("click", () => {
+      const currentContainer = button.closest(".step-container");
+      const nextContainer = currentContainer.nextElementSibling;
+
+      if (nextContainer) {
+        const nextStep = nextContainer.querySelector(".step");
+        const nextButton = nextContainer.querySelector(".reveal-step-btn");
+
+        if (nextStep) {
+          nextStep.style.display = "block";
+        }
+
+        if (nextButton) {
+          nextButton.style.display = "block";
+          nextButton.style.margin = "20px auto"; // Center align
+        }
+
+        // Hide the current button
+        button.style.display = "none";
+
+        // Scroll to the newly revealed step
+        nextContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+});

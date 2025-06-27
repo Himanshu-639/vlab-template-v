@@ -92,8 +92,7 @@
       <div class="container" id="aim">
         <div class="title">Aim</div>
         <div class="content">
-          <p>The aim of this Virtual Lab is to demonstrate the process of extracting text from two images using OCR and
-            comparing their content using Natural Language Processing techniques to determine their textual similarity
+          <p>Aim of this Virtual Lab is to demonstrate the process of extracting text from two images using <b>Optical Character Recognition (OCR)</b> and comparing their content using <b>Natural Language Processing (NLP)</b> techniques to determine their textual similarity.
           </p>
         </div>
       </div>
@@ -103,11 +102,7 @@
         <div class="title">Theory & Applications</div>
         <div class="content">
           <p><br>
-            This experiment demonstrates the integration of <b>Optical Character Recognition (OCR)</b> and
-            <b>Natural Language Processing (NLP)</b> techniques to compute the textual similarity between
-            two images. The process involves extracting text from image files, preprocessing the text,
-            converting it into a weighted vector representation using <b>TF-IDF</b>, and finally measuring
-            their similarity using <b>Cosine Similarity</b>.
+            Text recognition from an image requires integration of <b>Optical Character Recognition (OCR)</b> and <b>Natural Language Processing (NLP)</b> techniques to compute the textual similarity between two images. The process involves extracting text from the image, preprocessing the text, converting it into a weighted vector representation using  a commonly used method <b>TF-IDF (Term Frequency-Inverse Document Frequency)</b>, and finally measuring their similarity using metric <b>Cosine Similarity</b>.
           </p>
 
           <span>Key Concepts</span>
@@ -119,12 +114,7 @@
                   deep learning techniques.</li>
                 <li><b>Functionality:</b> It converts pixel-level image data into text by recognizing
                   character shapes and structures.</li>
-                <li><b>In this project:</b> OCR is performed using the <b>OCR.space API</b>, which provides
-                  high-accuracy text extraction, including support for some handwritten content.
-                  While open-source libraries like <b>Tesseract</b> and <b>EasyOCR</b> can also be used
-                  for this task, they are primarily optimized for printed or clearly structured text
-                  and often underperform on real-world handwritten images. OCR.space gives better results
-                  due to its training on diverse datasets.</li>
+                <li><b>In this project:</b> OCR is performed using the <b><a href="https://ocr.space/OCRAPI">OCR.space API</a></b>, which     provides high-accuracy text extraction including support for the handwritten content and returns text in a JSON format. While open-source libraries like Tesseract and EasyOCR can also be used for this task, they are primarily optimized for printed or clearly structured text and often underperform on real-world handwritten images. API OCR.space gives better results due to its training on diverse datasets.</li>
               </ul>
             </li>
 
@@ -132,6 +122,7 @@
               <ul>
                 <li><b>Definition:</b> NLP refers to the set of algorithms and processes that allow machines
                   to understand, interpret, and manipulate human language.</li>
+                <li><b>Library Used:</b> nltk (Natural Language Toolkit)</li>
                 <li><b>Text Preprocessing:</b> A crucial stage that prepares raw text for similarity analysis.
                   It includes:
                   <ul>
@@ -152,6 +143,7 @@
               <ul>
                 <li><b>Purpose:</b> Converts textual data into numerical feature vectors that reflect term
                   importance in a document relative to a collection.</li>
+                <li><b>Library Used:</b> sklearn (scikit-learn)</li>
                 <li><b>Term Frequency (TF):</b> Measures how frequently a term appears in a document:
                   <br><code>TF(t) = (Number of times term t appears in a document) / (Total terms in document)</code>
                 </li>
@@ -170,6 +162,7 @@
               <ul>
                 <li><b>Definition:</b> Cosine similarity is a metric used to measure how similar two
                   vectors are, regardless of their magnitude.</li>
+                <li><b>Library Used:</b> sklearn (scikit-learn)</li>
                 <li><b>Mathematical Formula:</b>
                   <br><code>
                   Cosine Similarity = (A · B) / (||A|| × ||B||)
@@ -212,8 +205,9 @@
             </li>
             <li>
               <b>Document Clustering and Organization:</b>
-              By generating TF-IDF vectors from scanned images, documents can be grouped into clusters
-              (e.g., job applications, receipts, letters) based on textual similarity without manual sorting.
+              By generating TF-IDF vectors from scanned images, documents can be grouped into clusters (e.g., job applications, receipts 
+              letters) for tagging them based on textual similarity without manual sorting, which is useful in information retrieval 
+              systems and customer segmentation.
             </li>
           </ol>
         </div>
@@ -453,138 +447,163 @@ if __name__ == "__main__":
           <!-- Example 1 Tab Content -->
           <div class="transition-wrapper" id="example1Wrapper">
             <div class="contain">
-              <div class="step">
-                <p>
-                  This example demonstrates the full pipeline of the experiment using two sample images.
-                  Each stage illustrates how the content is transformed from raw image data to a final similarity score.
-                </p><br>
-                <p>
-                  The user is required to upload two images which are to be compared on the basis of the text contained in them.<br>
-                  Now consider the following two images are uploaded by the user:
-                </p>
-                <div class="image-row">
-                  <img src="images/CPU.png" alt="Image 1">
-                  <img src="images/computer_architecture.jpg" alt="Image 2">
-                </div>              
-                <p><br>
-                  After clicking the <b>“Extract Text”</b> button, each image is sent to the <b>OCR.space API</b>. 
-                  The API processes the image and returns the detected text.
-                </p>
-                <div class="processing-step">Text Extracted</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>Input from\nDevice\nCentral Processing Unit\nControl Unit\nArithmetic/Logical Unit\nRegisters\nMemory Unit\nOutput from\nDevice</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b><code>Input Unit\nCPU\nControl Unit\nArithmetic\n& Logic Unit\nMemory Unit\nOutput Unit</code></p>
-                  </div>
+              <div class="step-container">
+                <div class="step">
+                  <p>
+                    This example demonstrates the full pipeline of the experiment using two sample images.
+                    Each stage illustrates how the content is transformed from raw image data to a final similarity score.
+                  </p><br>
+                  <p>
+                    The user is required to upload two images which are to be compared on the basis of the text contained in them.<br>
+                  </p>
                 </div>
-              </div>
-              
-
-              <div class="step">
-                <p>
-                  Before comparing the extracted texts, preprocessing is essential to clean and standardize the content. 
-                  This step ensures that insignificant variations (like punctuation or casing) do not affect the similarity result.
-                </p>
-              
-                <div class="processing-step">After Lowercasing</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic/logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\n& logic unit\nmemory unit\noutput unit</code></p>
-                  </div>
-                </div>              
-
-                <div class="processing-step">After Punctuation Removal</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\nlogic unit\nmemory unit\noutput unit</code></p>
-                  </div>
-                </div>
-
-                <div class="processing-step">After Tokenization</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>['input', 'from', 'device', 'central', 'processing', 'unit', 'control', 'unit', 'arithmetic', 'logical', 'unit', 'registers', 'memory', 'unit', 'output', 'from', 'device']</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b> <code>['input', 'unit', 'cpu', 'control', 'unit', 'arithmetic', 'logic', 'unit', 'memory', 'unit', 'output', 'unit']</code></p>
-                  </div>
-                </div>
-
-                <div class="processing-step">After Stopword Removal</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>input device central processing unit control unit arithmetic logical unit registers memory unit output device</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
-                  </div>
-                </div>
-
-                <div class="processing-step">After Lemmatization</div>
-                <div class="step-comparison">
-                  <div class="step-box">
-                    <p><b>Image 1:</b> <code>input device central process unit control unit arithmetic logical unit register memory unit output device</code></p>
-                  </div>
-                  <div class="step-box">
-                    <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
-                  </div>
-                </div>
+                <button class="reveal-step-btn">Load Images</button>
               </div>
 
-              <div class="step">
-                <p>
-                  The cleaned tokens obtained after all preprocessing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
-                  TF-IDF helps in assigning weights to words based on their importance — terms that are frequent in a document but rare across other documents are given more significance.
-                </p>
+              <div class="step-container">
+                <div class="step">
+                  <p>
+                    Now consider the following two images are uploaded by the user:
+                  </p>
+                  <div class="image-row">
+                    <img src="images/CPU.png" alt="Image 1">
+                    <img src="images/computer_architecture.jpg" alt="Image 2">
+                  </div>
+                </div>
+                <button class="reveal-step-btn">Extract Text</button>
+              </div>
 
-                <p><br><b>TF-IDF Score Formula (simplified):</b></p>
-                <p>
-                  <code>TF-IDF(t, d) = TF(t, d) × IDF(t)</code><br>
-                  Where:<br>
-                  – <b>TF(t, d)</b>: Term Frequency – how many times term <code>t</code> appears in document <code>d</code><br>
-                  – <b>IDF(t)</b>: Inverse Document Frequency = <code>log[(N + 1) / (DF + 1)] + 1</code>
-                </p><br>
+              <div class="step-container">                
+                <div class="step">            
+                  <p>
+                    After clicking the <b>“Extract Text”</b> button, each image is sent to the <b>OCR.space API</b>. 
+                    The API processes the image and returns the detected text.
+                  </p>
+                  <div class="processing-step">Text Extracted</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>Input from\nDevice\nCentral Processing Unit\nControl Unit\nArithmetic/Logical Unit\nRegisters\nMemory Unit\nOutput from\nDevice</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b><code>Input Unit\nCPU\nControl Unit\nArithmetic\n& Logic Unit\nMemory Unit\nOutput Unit</code></p>
+                    </div>
+                  </div>
+                  <p><br><b>Note:</b> The \n symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
+                </div>
+                <button class="reveal-step-btn">Preprocess Text</button>
+              </div>
+
+              <div class="step-container">                
+                <div class="step">
+                  <p>
+                    Before comparing the extracted texts, preprocessing is essential to clean and standardize the content. 
+                    This step ensures that insignificant variations (like punctuation or casing) do not affect the similarity result.
+                  </p>
                 
-                <p>
-                  <i>Note:</i> You may notice a slight change in the formula of IDF compared to the traditional form.
-                  This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>sklearn</code>'s <code>TfidfVectorizer</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
-                </p><br>
+                  <div class="processing-step">After Lowercasing</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic/logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\n& logic unit\nmemory unit\noutput unit</code></p>
+                    </div>
+                  </div>              
 
-                <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
-                <div style="text-align: center;">
-                  <img src="images/TFIDF.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                  <div class="processing-step">After Punctuation Removal</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\nlogic unit\nmemory unit\noutput unit</code></p>
+                    </div>
+                  </div>
+
+                  <div class="processing-step">After Tokenization</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>['input', 'from', 'device', 'central', 'processing', 'unit', 'control', 'unit', 'arithmetic', 'logical', 'unit', 'registers', 'memory', 'unit', 'output', 'from', 'device']</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b> <code>['input', 'unit', 'cpu', 'control', 'unit', 'arithmetic', 'logic', 'unit', 'memory', 'unit', 'output', 'unit']</code></p>
+                    </div>
+                  </div>
+
+                  <div class="processing-step">After Stopword Removal</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>input device central processing unit control unit arithmetic logical unit registers memory unit output device</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
+                    </div>
+                  </div>
+
+                  <div class="processing-step">After Lemmatization</div>
+                  <div class="step-comparison">
+                    <div class="step-box">
+                      <p><b>Image 1:</b> <code>input device central process unit control unit arithmetic logical unit register memory unit output device</code></p>
+                    </div>
+                    <div class="step-box">
+                      <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
+                    </div>
+                  </div>
                 </div>
+                <button class="reveal-step-btn">Calculate TF-IDF</button>
               </div>
 
-              <div class="step">
-                <p>
-                  After converting the preprocessed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
-                  Using Cosine Similarity Formula:
-                </p>
-                <pre><code>cos(θ) = (A · B) / (||A|| × ||B||)</code></pre><br>
-                <p>
-                  The result is presented in the form of a similarity matrix, where each element <code>(i, j)</code> represents the similarity between Document <code>i</code> and Document <code>j</code>. The matrix shown below is the actual cosine similarity matrix obtained in this case.
-                </p>
-                <div style="text-align: left; margin: 10px 0;">
-                <p><b>Cosine Similarity Matrix:</b></p>
+              <div class="step-container">                
+                <div class="step">
+                  <p>
+                    The cleaned tokens obtained after all preprocessing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
+                    TF-IDF helps in assigning weights to words based on their importance — terms that are frequent in a document but rare across other documents are given more significance.
+                  </p>
+
+                  <p><br><b>TF-IDF Score Formula (simplified):</b></p>
+                  <p>
+                    <code>TF-IDF(t, d) = TF(t, d) × IDF(t)</code><br>
+                    Where:<br>
+                    – <b>TF(t, d)</b>: Term Frequency – how many times term <code>t</code> appears in document <code>d</code><br>
+                    – <b>IDF(t)</b>: Inverse Document Frequency = <code>log[(N + 1) / (DF + 1)] + 1</code>
+                  </p><br>
+
+                  <p>
+                    <i>Note:</i> You may notice a slight change in the formula of IDF compared to the traditional form.
+                    This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>sklearn</code>'s <code>TfidfVectorizer</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
+                  </p><br>
+
+                  <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
+                  <div style="text-align: center;">
+                    <img src="images/TFIDF.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                  </div>
+                </div>
+                <button class="reveal-step-btn">Calculate Cosine Similarity</button>
+              </div>
+
+              <div class="step-container">                
+                <div class="step">
+                  <p>
+                    After converting the preprocessed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
+                    Using Cosine Similarity Formula:
+                  </p>
+                  <pre><code>cos(θ) = (A · B) / (||A|| × ||B||)</code></pre><br>
+                  <p>
+                    The result is presented in the form of a similarity matrix, where each element <code>(i, j)</code> represents the similarity between Document <code>i</code> and Document <code>j</code>. The matrix shown below is the actual cosine similarity matrix obtained in this case.
+                  </p>
+                  <div style="text-align: left; margin: 10px 0;">
+                  <p><b>Cosine Similarity Matrix:</b></p>
   <pre style="display: inline-block; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">[[1.0       0.7073]
  [0.7073    1.0]]</pre>
-                </div><br>
+                  </div><br>
 
-                <p>
-                  The value <code>0.7073</code> indicates the similarity score between the two uploaded images.
-                </p><br>
+                  <p>
+                    The value <code>0.7073</code> indicates the similarity score between the two uploaded images.
+                  </p><br>
 
-                <div class="result-box">
-                  <h2>Similarity Score: <span style="color: green;">70.73%</span></h2>
+                  <div class="result-box">
+                    <h2>Similarity Score: <span style="color: green;">70.73%</span></h2>
+                  </div>
                 </div>
               </div>
             </div>
