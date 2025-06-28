@@ -329,18 +329,10 @@ input[type="radio"] {
   justify-content: center;
 }
 
-.code-block {
-  display: none;
-}
-
-.code-block.active {
-  display: block;
-}
-
-
 .copy-button:hover {
   background-color: #555;
 }
+
 .code-block {
   position: relative;
   background-color: #f7f7f7;
@@ -349,14 +341,6 @@ input[type="radio"] {
   margin-bottom: 20px;
   overflow: hidden;
 }
-.code-block {
-  display: none;
-}
-
-.code-block.active {
-  display: block;
-}
-
 
 .code-content {
   position: relative;
@@ -402,6 +386,19 @@ input[type="radio"] {
   font-size: 12px;
   white-space: pre-wrap;
 }
+
+.code-block {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.code-block.active {
+  opacity: 1;
+  max-height: 2000px; /* large enough to show code */
+}
+
 
 /* Quiz */
 .box {
@@ -718,11 +715,11 @@ button:hover {
 }
 
 
-#example1Wrapper .step-container:nth-of-type(odd) .step {
+#example1Wrapper .step-container:nth-of-type(odd) .step, #example2Wrapper .step-container:nth-of-type(odd) .step {
   background-color: #e9f7fa; /* Light Blue (AliceBlue) */
 }
 
-#example1Wrapper .step-container:nth-of-type(even) .step {
+#example1Wrapper .step-container:nth-of-type(even) .step, #example2Wrapper .step-container:nth-of-type(even) .step {
   background-color: #e8f5e9; /* Light Green */
 }
 

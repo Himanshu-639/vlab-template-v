@@ -37,7 +37,7 @@ function switchContent(topic) {
     currentTopic = topic; // Update the current topic
 }
 
-// Generalized function to toggle language-based code blocks
+// Show the selected language's code block
 function toggleCode(language) {
   const allCodeBlocks = document.querySelectorAll(".code-block");
   allCodeBlocks.forEach((block) => block.classList.remove("active"));
@@ -51,14 +51,13 @@ function copyCode(elementId) {
   const codeBlock = document.getElementById(elementId);
   const code = codeBlock.querySelector("code").innerText;
 
-  // Copy the selected code text to clipboard
   navigator.clipboard
     .writeText(code)
     .then(() => {
       const copyButton = codeBlock.querySelector(".copy-button");
-      copyButton.textContent = "Copied!"; // Temporarily change button text
+      copyButton.textContent = "Copied!";
       setTimeout(() => {
-        copyButton.textContent = "Copy"; // Reset text after 2 seconds
+        copyButton.textContent = "Copy";
       }, 2000);
     })
     .catch((err) => {
@@ -66,21 +65,19 @@ function copyCode(elementId) {
     });
 }
 
-// Event listeners for radio buttons
-document
-  .getElementById("cppRadio")
-  .addEventListener("change", () => toggleCode("cpp"));
+// Only Python tab exists
 document
   .getElementById("pythonRadio")
   .addEventListener("change", () => toggleCode("python"));
 
-// Event listener for copy buttons
+// Copy button logic
 document.querySelectorAll(".copy-button").forEach((button) => {
   button.addEventListener("click", function () {
     const language = button.closest(".code-block").id.replace("Code", "");
     copyCode(language + "Code");
   });
 });
+
 
 // Quiz Logic
 const questions = [
@@ -224,41 +221,48 @@ buttons.forEach(button => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".reveal-step-btn");
+  // For each wrapper (e.g., example1Wrapper, example2Wrapper, etc.)
+  const wrappers = document.querySelectorAll(".transition-wrapper");
 
-  buttons.forEach((button, index) => {
-    // Hide all buttons except the first one
-    if (index !== 0) {
+  wrappers.forEach(wrapper => {
+    const buttons = wrapper.querySelectorAll(".reveal-step-btn");
+
+    buttons.forEach((button, index) => {
+      // Hide all buttons initially
       button.style.display = "none";
-    } else {
-      button.style.display = "block";
-      button.style.margin = "20px auto";
-    }
 
-    // Attach click event to each button
-    button.addEventListener("click", () => {
-      const currentContainer = button.closest(".step-container");
-      const nextContainer = currentContainer.nextElementSibling;
+      // Attach click event to each button
+      button.addEventListener("click", () => {
+        const currentContainer = button.closest(".step-container");
+        const nextContainer = currentContainer.nextElementSibling;
 
-      if (nextContainer) {
-        const nextStep = nextContainer.querySelector(".step");
-        const nextButton = nextContainer.querySelector(".reveal-step-btn");
+        if (nextContainer) {
+          const nextStep = nextContainer.querySelector(".step");
+          const nextButton = nextContainer.querySelector(".reveal-step-btn");
 
-        if (nextStep) {
-          nextStep.style.display = "block";
+          if (nextStep) {
+            nextStep.style.display = "block";
+          }
+
+          if (nextButton) {
+            nextButton.style.display = "block";
+            nextButton.style.margin = "20px auto"; // center align
+          }
+
+          // Hide the current button
+          button.style.display = "none";
+
+          // Scroll to newly revealed step
+          nextContainer.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-
-        if (nextButton) {
-          nextButton.style.display = "block";
-          nextButton.style.margin = "20px auto"; // Center align
-        }
-
-        // Hide the current button
-        button.style.display = "none";
-
-        // Scroll to the newly revealed step
-        nextContainer.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      });
     });
+
+    // Show only the first button of this wrapper
+    const firstButton = wrapper.querySelector(".step-container .reveal-step-btn");
+    if (firstButton) {
+      firstButton.style.display = "block";
+      firstButton.style.margin = "20px auto"; // center align
+    }
   });
 });
