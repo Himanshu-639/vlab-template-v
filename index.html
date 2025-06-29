@@ -574,7 +574,7 @@ if __name__ == "__main__":
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
                   <div style="text-align: center;">
-                    <img src="images/TFIDF.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                    <img src="images/TFIDF1.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
                   </div>
                 </div>
                 <button class="reveal-step-btn">Calculate Cosine Similarity</button>
@@ -630,8 +630,8 @@ if __name__ == "__main__":
                     Now consider the following two images are uploaded by the user:
                   </p>
                   <div class="image-row">
-                    <img src="images/CPU.png" alt="Image 1">
-                    <img src="images/computer_architecture.jpg" alt="Image 2">
+                    <img src="images/ACID.jpg" alt="Image 1">
+                    <img src="images/Transaction.jpg" alt="Image 2">
                   </div>
                 </div>
                 <button class="reveal-step-btn">Extract Text</button>
@@ -646,10 +646,10 @@ if __name__ == "__main__":
                   <div class="processing-step">Text Extracted</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>Input from\nDevice\nCentral Processing Unit\nControl Unit\nArithmetic/Logical Unit\nRegisters\nMemory Unit\nOutput from\nDevice</code></p>
+                      <p><b>Image 1:</b> <code>ACID\nACID Properties in DBMS\n• A = Atomicity'\n* The entire transaction takes place at once\nor doesn't happen at all.\n* C = Consistency\n, The database must be consistent before\nand after the transaction.\n• = Isolation\n→ Multiple Transactions occur independently\nwithout interference.\n> D = Durability -\n→ The changes of a successful transaction\noccurs even if the system failure occurs.</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b><code>Input Unit\nCPU\nControl Unit\nArithmetic\n& Logic Unit\nMemory Unit\nOutput Unit</code></p>
+                      <p><b>Image 2:</b><code>A transaction is a set of database\noperations done\nas one unit\nIt follows ACID Property.\nAtomicity, Consistency\nIsolation, Durability</code></p>
                     </div>
                   </div>
                   <p><br><b>Note:</b> The \n symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
@@ -667,50 +667,50 @@ if __name__ == "__main__":
                   <div class="processing-step">After Lowercasing</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic/logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
+                      <p><b>Image 1:</b> <code>acid\nacid properties in dbms\n• a = atomicity'\n* the entire transaction takes place at once\nor doesn't happen at all.\n* c = consistency\n, the database must be consistent before\nand after the transaction.\n• = isolation\n→ multiple transactions occur independently\nwithout interference.\n> d = durability -\n→ the changes of a successful transaction\noccurs even if the system failure occurs.</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\n& logic unit\nmemory unit\noutput unit</code></p>
+                      <p><b>Image 2:</b> <code>a transaction is a set of database\noperations done\nas one unit\nit follows acid property.\natomicity, consistency\nisolation, durability</code></p>
                     </div>
                   </div>              
 
                   <div class="processing-step">After Punctuation Removal</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>input from\ndevice\ncentral processing unit\ncontrol unit\narithmetic logical unit\nregisters\nmemory unit\noutput from\ndevice</code></p>
+                      <p><b>Image 1:</b> <code>acid\nacid properties in dbms\n a atomicity\n the entire transaction takes place at once\nor doesnt happen at all\n c consistency\n the database must be consistent before\nand after the transaction\n isolation\n multiple transactions occur independently\nwithout interference\n d durability \n the changes of a successful transaction\noccurs even if the system failure occurs</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b> <code>input unit\ncpu\ncontrol unit\narithmetic\nlogic unit\nmemory unit\noutput unit</code></p>
+                      <p><b>Image 2:</b> <code>a transaction is a set of database\noperations done\nas one unit\nit follows acid property \natomicity consistency\nisolation durability</code></p>
                     </div>
                   </div>
 
                   <div class="processing-step">After Tokenization</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>['input', 'from', 'device', 'central', 'processing', 'unit', 'control', 'unit', 'arithmetic', 'logical', 'unit', 'registers', 'memory', 'unit', 'output', 'from', 'device']</code></p>
+                      <p><b>Image 1:</b> <code>['acid', 'acid', 'properties', 'in', 'dbms', 'a', 'atomicity', 'the', 'entire', 'transaction', 'takes', 'place', 'at', 'once', 'or', 'doesnt', 'happen', 'at', 'all', 'c', 'consistency', 'the', 'database', 'must', 'be', 'consistent', 'before', 'and', 'after', 'the', 'transaction', 'isolation', 'multiple', 'transactions', 'occur', 'independently', 'without', 'interference', 'd', 'durability', 'the', 'changes', 'of', 'a', 'successful', 'transaction', 'occurs', 'even', 'if', 'the', 'system', 'failure', 'occurs']</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b> <code>['input', 'unit', 'cpu', 'control', 'unit', 'arithmetic', 'logic', 'unit', 'memory', 'unit', 'output', 'unit']</code></p>
+                      <p><b>Image 2:</b> <code>['a', 'transaction', 'is', 'a', 'set', 'of', 'database', 'operations', 'done', 'as', 'one', 'unit', 'it', 'follows', 'acid', 'property', 'atomicity', 'consistency', 'isolation', 'durability']</code></p>
                     </div>
                   </div>
 
                   <div class="processing-step">After Stopword Removal</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>input device central processing unit control unit arithmetic logical unit registers memory unit output device</code></p>
+                      <p><b>Image 1:</b> <code>acid acid properties dbms atomicity entire transaction takes place doesnt happen c consistency database must consistent transaction isolation multiple transactions occur independently without interference durability changes successful transaction occurs even system failure occurs</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
+                      <p><b>Image 2:</b> <code>transaction set database operations done one unit follows acid property atomicity consistency isolation durability</code></p>
                     </div>
                   </div>
 
                   <div class="processing-step">After Lemmatization</div>
                   <div class="step-comparison">
                     <div class="step-box">
-                      <p><b>Image 1:</b> <code>input device central process unit control unit arithmetic logical unit register memory unit output device</code></p>
+                      <p><b>Image 1:</b> <code>acid acid property dbms atomicity entire transaction take place doesnt happen c consistency database must consistent transaction isolation multiple transaction occur independently without interference durability change successful transaction occurs even system failure occurs</code></p>
                     </div>
                     <div class="step-box">
-                      <p><b>Image 2:</b> <code>input unit cpu control unit arithmetic logic unit memory unit output unit</code></p>
+                      <p><b>Image 2:</b> <code>transaction set database operation done one unit follows acid property atomicity consistency isolation durability</code></p>
                     </div>
                   </div>
                 </div>
@@ -739,7 +739,7 @@ if __name__ == "__main__":
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
                   <div style="text-align: center;">
-                    <img src="images/TFIDF.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                    <img src="images/TFIDF2.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
                   </div>
                 </div>
                 <button class="reveal-step-btn">Calculate Cosine Similarity</button>
@@ -757,16 +757,16 @@ if __name__ == "__main__":
                   </p>
                   <div style="text-align: left; margin: 10px 0;">
                   <p><b>Cosine Similarity Matrix:</b></p>
-  <pre style="display: inline-block; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">[[1.0       0.7073]
- [0.7073    1.0]]</pre>
+  <pre style="display: inline-block; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">[[1.0000   0.2913]
+ [0.2913   1.0000]]</pre>
                   </div><br>
 
                   <p>
-                    The value <code>0.7073</code> indicates the similarity score between the two uploaded images.
+                    The value <code>0.2872</code> indicates the similarity score between the two uploaded images.
                   </p><br>
 
                   <div class="result-box">
-                    <h2>Similarity Score: <span style="color: green;">70.73%</span></h2>
+                    <h2>Similarity Score: <span style="color: green;">28.72%</span></h2>
                   </div>
                 </div>
               </div>
