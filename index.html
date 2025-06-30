@@ -92,7 +92,7 @@
       <div class="container" id="aim">
         <div class="title">Aim</div>
         <div class="content">
-          <p>Aim of this Virtual Lab is to demonstrate the process of extracting text from two images using <b>Optical Character Recognition (OCR)</b> and comparing their content using <b>Natural Language Processing (NLP)</b> techniques to determine their textual similarity.
+          <p>Aim of this Virtual Lab is to demonstrate the process of extracting text from two images using <b>Optical Character Recognition (OCR)</b> and comparing their content using <b>Natural Language Processing (NLP)</b> techniques to enable machines to approximate human-like understanding of textual similarity.
           </p>
         </div>
       </div>
@@ -264,20 +264,40 @@
                 <li>Click the <i>"Calculate Similarity"</i> button.</li>
                 <li>Cosine Similarity is calculated using the TF-IDF vectors:
                   <br>&nbsp;&nbsp;&nbsp; <code>Cosine Similarity = (A · B) / (||A|| × ||B||)</code>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;Where:</p>
+                  <ul>
+                    <li>
+                      <strong>A and B</strong> are <em>d</em>-dimensional vectors represented as 
+                      <code>A = (A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>d</sub>)</code> and 
+                      <code>B = (B<sub>1</sub>, B<sub>2</sub>, ..., B<sub>d</sub>)</code>.
+                    </li>
+                    <li>
+                      <strong>A · B</strong> is the <strong>dot product</strong>, calculated as: <br>
+                      &nbsp;&nbsp;&nbsp;<code>A<sub>1</sub> × B<sub>1</sub> + A<sub>2</sub> × B<sub>2</sub> + ... + A<sub>d</sub> × B<sub>d</sub></code>
+                    </li>
+                    <li>
+                      <strong>||A||</strong> is the <strong>magnitude</strong> of vector A, computed as: <br>
+                      &nbsp;&nbsp;&nbsp;<code>√(A<sub>1</sub><sup>2</sup> + A<sub>2</sub><sup>2</sup> + ... + A<sub>d</sub><sup>2</sup>)</code>
+                    </li>
+                    <li>
+                      <strong>||B||</strong> is the <strong>magnitude</strong> of vector B, computed similarly.
+                    </li>
+                  </ul>
                 </li>
-                <li>A similarity score between 0 and 1 is computed and displayed.</li>
-                <li>The score indicates how similar the two images are based on their text content.</li>
+                <li>A similarity score between 0 and 1 is then computed and displayed, indicating how similar the two texts are based on their content.</li>
               </ul>
             </li>
 
             <li><b>Interpret the Result</b>
               <ul>
-                <li>A higher similarity score (close to 100%) means the two texts are very similar or identical.</li>
-                <li>A lower score (close to 0%) means the texts are largely different.</li>
-                <li>Students can upload different images to explore and analyze how text content affects similarity.
+                <li>The cosine similarity score ranges from <strong>0 to 1</strong>, which is equivalent to a similarity percentage ranging from <strong>0% to 100%</strong>  </li>
+                <li><strong>100%</strong> → Vectors point in identical directions → <em>Highly similar texts</em> (not necessarily identical wording)</li>
+                <li><strong>0%</strong> → Vectors are orthogonal → <em>Completely dissimilar texts</em>
                 </li>
               </ul>
             </li>
+    
+
           </ol>
 
         </div>
@@ -434,7 +454,14 @@ if __name__ == "__main__":
 
       <!-- Practice -->
       <div class="container" id="practice">
+        <div class="title">Practice</div>
         <div class="content">
+          <div class="example-heading">
+            <span>
+            <strong>Example 1</strong> and <strong>Example 2</strong> illustrate the complete workflow using two sample images. No user input is required. <br>
+            In <strong>Try Yourself</strong> users are required to upload two custom images. The OCR and textual similarity analysis are then performed on the uploaded content.
+            </span>
+          </div>
 
           <!-- Tab Buttons -->
           <div class="tab-bar">
@@ -451,9 +478,6 @@ if __name__ == "__main__":
                   <p>
                     This example demonstrates the full pipeline of the experiment using two sample images.
                     Each stage illustrates how the content is transformed from raw image data to a final similarity score.
-                  </p><br>
-                  <p>
-                    The user is required to upload two images which are to be compared on the basis of the text contained in them.<br>
                   </p>
                 </div>
                 <button class="reveal-step-btn">Load Images</button>
@@ -616,9 +640,6 @@ if __name__ == "__main__":
                   <p>
                     This example demonstrates the full pipeline of the experiment using two sample images.
                     Each stage illustrates how the content is transformed from raw image data to a final similarity score.
-                  </p><br>
-                  <p>
-                    The user is required to upload two images which are to be compared on the basis of the text contained in them.<br>
                   </p>
                 </div>
                 <button class="reveal-step-btn">Load Images</button>
@@ -964,12 +985,7 @@ async function calculateSimilarity() {
       <div class="container" id="result">
         <div class="title">Result</div>
         <div class="content">
-          <p><br>
-            Upon completing the steps of the experiment, a <b>similarity score</b> is generated based on the textual content extracted from the two uploaded images. This result offers a quantitative measure of how closely the images match in terms of written information.
-          </p>
-        
-          <p>
-            The similarity score is calculated using <b>TF-IDF vectorization</b> and <b>cosine similarity</b>. Each image is represented as a vector of weighted words, and the angle between these vectors is measured. The smaller the angle (i.e., the closer the vectors), the higher the similarity score.
+          <p>Text extracted from two images and subsequently pre-processed  are compared  to get a similarity score using cosine similarity metric.  The resultant score offers a quantitative measure of closeness of  the selected images in terms of written textual  details.
           </p>
         
           <p><br><b>Interpretation of the result:</b></p>
@@ -991,7 +1007,7 @@ async function calculateSimilarity() {
           </p><br>
         
           <p>
-            Although the wording differs, the core idea is preserved in both sentences. The system captures this using NLP and vector-based similarity computation, demonstrating how machines can approximate human-like understanding of textual similarity.
+            Although these two sentences are written differently, their underlying meaning (core idea) is the same — that is, they are synonymous sentences. Such semantic textual similarity is captured using natural language processing techniques.
           </p>
         </div>
       </div>
@@ -999,6 +1015,7 @@ async function calculateSimilarity() {
       <!-- Quiz -->
       <div class="container" id="quiz">
         <div class="title">Quiz</div>
+        <span><b>Select the most appropriate choice</b></span>
         <p id="question"></p>
         <div id="choices" class="choices"></div>
           <button id="next-btn" class="next-button">Next</button>
@@ -1011,16 +1028,24 @@ async function calculateSimilarity() {
         <div class="content">
           <ul class="ref-list">
             <li>
-              <span><a href="https://ocr.space/ocrapi" rel="noopener" target="_blank">OCR.space API Documentation</a></span>
+              OCR.space. (n.d.). <i>Get Your Free OCR API Key</i>. Retrieved June 30, 2025, from 
+              <a href="https://ocr.space/ocrapi" rel="noopener" target="_blank">https://ocr.space/ocrapi</a>
             </li>
             <li>
-              <span><a href="https://www.nltk.org/" rel="noopener" target="_blank">NLTK Documentation</a></span>
+              Bird, S., Klein, E., & Loper, E. (Aug 19, 2024). <i>NLTK: Natural Language Toolkit</i>. Retrieved June 30, 2025, from 
+              <a href="https://www.nltk.org/" rel="noopener" target="_blank">https://www.nltk.org/</a>
             </li>
             <li>
-              <span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" rel="noopener" target="_blank">TF-IDF Documentation</a></span>
+              Scikit-learn Developers. (n.d.). <i>TfidfVectorizer - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
+              <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" rel="noopener" target="_blank">
+                https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+              </a>
             </li>
             <li>
-              <span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html" rel="noopener" target="_blank">Cosine Similarity Documentation</a></span>
+              Scikit-learn Developers. (n.d.). <i>cosine_similarity - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
+              <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html" rel="noopener" target="_blank">
+                https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
+              </a>
             </li>
           </ul>
         </div>
@@ -1051,16 +1076,16 @@ async function calculateSimilarity() {
               <span>OCR.space API - for text extraction </span>
             </li>
             <li>
-              <span>NLTK (Natural Language Toolkit) library - for text preprocessing </span>
+              <span>NLTK (Natural Language Toolkit), v3.9.1 - for text preprocessing </span>
             </li>
             <li>
-              <span>TfidfVectorizer, cosine_similarity - for calculating similarity </span>
+              <span>scikit-learn, v1.7.0 - for calculating similarity </span>
             </li>
             <li>
               <span>Vanilla HTML, CSS, JS - for creating the web page</span>
             </li>
             <li>
-              <span>Flask - for backend </span>
+              <span>Flask, v3.1.1 - for backend </span>
             </li>
           </ul>
         </div>

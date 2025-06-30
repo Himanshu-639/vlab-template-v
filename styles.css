@@ -816,6 +816,7 @@ button:hover {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+
 .box, .output-box {
   border: 2px dashed #8e8e8e;
   width: 320px;
@@ -902,7 +903,14 @@ h3 {
   color: #444;
 }
 
-
+.example-heading {
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #2e3035;
+  margin: 25px; /* Space above each section */
+  line-height: 1.6;
+}
 
 
 

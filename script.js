@@ -82,7 +82,7 @@ document.querySelectorAll(".copy-button").forEach((button) => {
 // Quiz Logic
 const questions = [
     {
-        question: "Why do we apply lemmatization during preprocessing?",
+        question: "What is the need for doing text lemmatization during preprocessing?",
         choices: [
             "A. To translate text into another language",
             "B. To reduce words to their base or dictionary form",
@@ -112,7 +112,7 @@ const questions = [
         answer: 0
     },
     {
-        question: "What is the role of cosine similarity in this lab?",
+        question: "What is the usage of cosine similarity metric in the given virtual lab?",
         choices: [
             "A. To detect rotation angles in images",
             "B. To remove punctuation from tokens",
