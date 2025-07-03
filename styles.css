@@ -543,7 +543,23 @@ button:hover {
   transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-.ref-list li a, .tools-list li span {
+.ref-list li a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  transition: color 0.3s ease; /* Transition for link hover effect */
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.tools-list li span {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  transition: color 0.3s ease; /* Transition for link hover effect */
+}
+
+.tools-list li a {
   text-decoration: none;
   color: inherit;
   font-weight: 400;

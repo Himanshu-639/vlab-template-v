@@ -84,40 +84,40 @@ const questions = [
     {
         question: "What is the need for doing text lemmatization during preprocessing?",
         choices: [
-            "A. To translate text into another language",
-            "B. To reduce words to their base or dictionary form",
-            "C. To identify grammatical mistakes",
-            "D. To count the frequency of punctuation"
+            "To translate text into another language",
+            "To reduce words to their base or dictionary form",
+            "To identify grammatical mistakes",
+            "To count the frequency of punctuation"
         ],
         answer: 1
     },
     {
         question: "Which of the following is not a typical step in NLP preprocessing?",
         choices: [
-            "A. Tokenization",
-            "B. Stopword removal",
-            "C. Image enhancement",
-            "D. Lemmatization"
+            "Tokenization",
+            "Stopword removal",
+            "Image enhancement",
+            "Lemmatization"
         ],
         answer: 2
     },
     {
         question: "In the TF-IDF formula, what does a high IDF value for a term indicate?",
         choices: [
-            "A. The term appears in very few documents",
-            "B. The term is a stopword",
-            "C. The term is common in all documents",
-            "D. The term appears multiple times in one document"
+            "The term appears in very few documents",
+            "The term is a stopword",
+            "The term is common in all documents",
+            "The term appears multiple times in one document"
         ],
         answer: 0
     },
     {
         question: "What is the usage of cosine similarity metric in the given virtual lab?",
         choices: [
-            "A. To detect rotation angles in images",
-            "B. To remove punctuation from tokens",
-            "C. To sort terms based on frequency",
-            "D. To measure how similar the vectorized texts from two images are"
+            "To detect rotation angles in images",
+            "To remove punctuation from tokens",
+            "To sort terms based on frequency",
+            "To measure how similar the vectorized texts from two images are"
         ],
         answer: 3
     }

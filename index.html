@@ -37,7 +37,7 @@
   </header>
 
   <div class="yourvlabtitle">
-    <h1>Text Based Image Comparison</h1>
+    <h1>Comparing Images On Textual Similarity</h1>
   </div>
 
   <div class="pageview">
@@ -92,7 +92,7 @@
       <div class="container" id="aim">
         <div class="title">Aim</div>
         <div class="content">
-          <p>Aim of this Virtual Lab is to demonstrate the process of extracting text from two images using <b>Optical Character Recognition (OCR)</b> and comparing their content using <b>Natural Language Processing (NLP)</b> techniques to enable machines to approximate human-like understanding of textual similarity.
+          <p>This Virtual Lab demonstrates the process of extracting text from two images using <b>Optical Character Recognition (OCR)</b> technique and comparing their content using <b>Natural Language Processing (NLP)</b> techniques to enable machines to approximate human-like understanding of textual similarity.
           </p>
         </div>
       </div>
@@ -114,7 +114,7 @@
                   deep learning techniques.</li>
                 <li><b>Functionality:</b> It converts pixel-level image data into text by recognizing
                   character shapes and structures.</li>
-                <li><b>In this project:</b> OCR is performed using the <b><a href="https://ocr.space/OCRAPI">OCR.space API</a></b>, which     provides high-accuracy text extraction including support for the handwritten content and returns text in a JSON format. While open-source libraries like Tesseract and EasyOCR can also be used for this task, they are primarily optimized for printed or clearly structured text and often underperform on real-world handwritten images. API OCR.space gives better results due to its training on diverse datasets.</li>
+                <li><b>Tool Used:</b> <b><a href="https://ocr.space/OCRAPI">OCR.space API</a></b> is used to perform high-accuracy text extraction including support for the handwritten content, and returns extracted text in a JSON format. While open-source libraries like Tesseract and EasyOCR can also be used for this task, they are primarily optimized for printed or clearly structured text and often underperform on real-world handwritten images. API OCR.space gives better results due to its training on diverse datasets.</li>
               </ul>
             </li>
 
@@ -142,18 +142,18 @@
             <li><b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>
               <ul>
                 <li><b>Purpose:</b> Converts textual data into numerical feature vectors that reflect term
-                  importance in a document relative to a collection.</li>
+                  importance in a text relative to a collection.</li>
                 <li><b>Library Used:</b> sklearn (scikit-learn)</li>
-                <li><b>Term Frequency (TF):</b> Measures how frequently a term appears in a document:
-                  <br><code>TF(t) = (Number of times term t appears in a document) / (Total terms in document)</code>
+                <li><b>Term Frequency (TF):</b> Measures how frequently a term t appears in a text:
+                  <br><code>TF(t) = (Number of times term t appears in a text) / (Total terms in text)</code>
                 </li>
                 <li><b>Inverse Document Frequency (IDF):</b> Reduces the weight of common terms by:
-                  <br><code>IDF(t) = log(Total number of documents / Number of documents with term t)</code>
+                  <br><code>IDF(t) = log(Number of texts / Number of texts with term t)</code>
                 </li>
                 <li><b>TF-IDF Score:</b>
                   <br><code>TF-IDF(t) = TF(t) × IDF(t)</code>
                 </li>
-                <li>This representation allows us to model documents as vectors in a high-dimensional space
+                <li>This representation allows modelling of text as vectors in a high-dimensional space
                   where each dimension corresponds to a term’s weight.</li>
               </ul>
             </li>
@@ -167,7 +167,7 @@
                   <br><code>
                   Cosine Similarity = (A · B) / (||A|| × ||B||)
                   </code><br>
-                  where A and B are the TF-IDF vectors of two documents.
+                  where A and B are the TF-IDF vectors of two texts.
                 </li>
                 <li><b>Interpretation:</b> The result ranges from 0% to 100%:
                   <ul>
@@ -253,7 +253,7 @@
 
             <li><b>Vectorize the Text using TF-IDF</b>
               <ul>
-                <li>The preprocessed texts from both images are converted into TF-IDF vectors.</li>
+                <li>The preprocessed texts from both images are converted into TF-IDF vectors referred as A and B respectively.</li>
                 <li>Each term is assigned a numerical weight based on its importance in the document and rarity across
                   documents.</li>
               </ul>
@@ -1028,21 +1028,21 @@ async function calculateSimilarity() {
         <div class="content">
           <ul class="ref-list">
             <li>
-              OCR.space. (n.d.). <i>Get Your Free OCR API Key</i>. Retrieved June 30, 2025, from 
+              1. OCR.space. (n.d.). <i>Get Your Free OCR API Key</i>. Retrieved June 30, 2025, from 
               <a href="https://ocr.space/ocrapi" rel="noopener" target="_blank">https://ocr.space/ocrapi</a>
             </li>
             <li>
-              Bird, S., Klein, E., & Loper, E. (Aug 19, 2024). <i>NLTK: Natural Language Toolkit</i>. Retrieved June 30, 2025, from 
+              2. Bird, S., Klein, E., & Loper, E. (Aug 19, 2024). <i>NLTK: Natural Language Toolkit</i>. Retrieved June 30, 2025, from 
               <a href="https://www.nltk.org/" rel="noopener" target="_blank">https://www.nltk.org/</a>
             </li>
             <li>
-              Scikit-learn Developers. (n.d.). <i>TfidfVectorizer - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
+              3. Scikit-learn Developers. (n.d.). <i>TfidfVectorizer - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
               <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" rel="noopener" target="_blank">
                 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
               </a>
             </li>
             <li>
-              Scikit-learn Developers. (n.d.). <i>cosine_similarity - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
+              4. Scikit-learn Developers. (n.d.). <i>cosine_similarity - scikit-learn 1.7.0 Documentation</i>. Retrieved June 30, 2025, from 
               <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html" rel="noopener" target="_blank">
                 https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html
               </a>
@@ -1056,7 +1056,7 @@ async function calculateSimilarity() {
         <div class="title">Team & Tools</div>
         <div class="content">
           <h3>Students</h3>
-          <ul class="ref-list">
+          <ul class="tools-list">
             <li>
               <a href="https://www.linkedin.com/in/kriti-misra-b6014a29b" rel="noopener" target="_blank"><span>Kriti
                   Misra, 2nd year, BSc (Hons) Computer Science (2024-25)</span></a>
@@ -1067,25 +1067,25 @@ async function calculateSimilarity() {
             </li>
           </ul>
           <h3>Mentors</h3>
-          <ul class="ref-list">
+          <ul class="tools-list">
             <li><span>Prof. Sharanjit Kaur, Department of Computer Science</span></li>
           </ul>
           <h3>Tools Used</h3>
           <ul class="tools-list">
             <li>
-              <span>OCR.space API - for text extraction </span>
+              <span>1. OCR.space API - for text extraction </span>
             </li>
             <li>
-              <span>NLTK (Natural Language Toolkit), v3.9.1 - for text preprocessing </span>
+              <span>2. NLTK (Natural Language Toolkit), v3.9.1 - for text preprocessing </span>
             </li>
             <li>
-              <span>scikit-learn, v1.7.0 - for calculating similarity </span>
+              <span>3. scikit-learn, v1.7.0 - for calculating similarity </span>
             </li>
             <li>
-              <span>Vanilla HTML, CSS, JS - for creating the web page</span>
+              <span>4. Vanilla HTML, CSS, JS - for creating the web page</span>
             </li>
             <li>
-              <span>Flask, v3.1.1 - for backend </span>
+              <span>5. Flask, v3.1.1 - for backend </span>
             </li>
           </ul>
         </div>
