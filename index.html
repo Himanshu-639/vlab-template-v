@@ -26,9 +26,9 @@
       <h1 class="vlab">V-Lab@ANDC</h1>
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-toggle">☰</div>
     <nav class="nav-menu" id="small-screen">
-      <div class="close-btn" onclick="toggleMenu()">✖</div>
+      <div class="close-btn">✖</div>
       <a href="https://www.vlab.andcollege.du.ac.in">Home</a>
       <a href="https://www.vlab.andcollege.du.ac.in#labs_section">Labs</a>
       <a href="https://www.vlab.andcollege.du.ac.in#team">Team</a>
@@ -42,46 +42,46 @@
 
   <div class="pageview">
     <nav class="navigation">
-      <button class="link" onclick="switchContent('aim')">
+      <button class="link" data-topic="aim">
         <img class="icon" src="images/Aim_img.png" alt="Aim" />
         <span>Aim</span>
       </button>
 
-      <button class="link" onclick="switchContent('theory')">
+      <button class="link" data-topic="theory">
         <img class="icon" src="images/theory_img.png" alt="THEORY" />
         <span>Theory & Appli.</span>
       </button>
 
-      <button class="link" onclick="switchContent('procedure')">
+      <button class="link" data-topic="procedure">
         <img class="icon" src="images/procedure_img.png" alt="PROCEDURE" />
         <span>Procedure</span>
       </button>
 
-      <button class="link" onclick="switchContent('practice')">
+      <button class="link" data-topic="practice">
         <img class="icon" src="images/practice_img.png" alt="PRACTICE" />
         <span>Practice</span>
       </button>
 
-      <button class="link" onclick="switchContent('code')">
+      <button class="link" data-topic="code">
         <img class="icon" src="images/code_img.png" alt="CODES" />
         <span>Codes</span>
       </button>
 
-      <button class="link" onclick="switchContent('result')">
+      <button class="link" data-topic="result">
         <img class="icon" src="images/result_img.png" alt="RESULT" />
         <span>Result</span>
       </button>
 
-      <button class="link" onclick="switchContent('quiz')">
+      <button class="link" data-topic="quiz">
         <img class="icon" src="images/quiz_img.png" alt="QUIZ" />
         <span>Quiz</span>
       </button>
 
-      <button class="link" onclick="switchContent('references')">
+      <button class="link" data-topic="references">
         <img class="icon" src="images/reference_img.png" alt="REFERENCE" />
         <span>References</span>
       </button>
-      <button class="link" onclick="switchContent('tnt')">
+      <button class="link" data-topic="tnt">
         <img class="icon" src="images/tnt_img.png" alt="TEAM & TOOLS" />
         <span>Team & Tools</span>
       </button>
@@ -438,7 +438,7 @@ def upload_files():
         return jsonify({"error": "Failed to extract text from images"}), 500
 
     similarity_score = compare_tfidf_cosine(text1, text2)
-    print("Similarity Score:", similarity_score)
+    print("Similarity Score", similarity_score)
 
     return jsonify({"similarity_score": similarity_score})
 
@@ -597,8 +597,8 @@ if __name__ == "__main__":
                   </p><br>
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
-                  <div style="text-align: center;">
-                    <img src="images/TFIDF1.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                  <div class="image-container">
+                    <img src="images/TFIDF1.png" alt="TF-IDF Matrix" class="tfidf-image">
                   </div>
                 </div>
                 <button class="reveal-step-btn">Calculate Cosine Similarity</button>
@@ -614,9 +614,9 @@ if __name__ == "__main__":
                   <p>
                     The result is presented in the form of a similarity matrix, where each element <code>(i, j)</code> represents the similarity between Document <code>i</code> and Document <code>j</code>. The matrix shown below is the actual cosine similarity matrix obtained in this case.
                   </p>
-                  <div style="text-align: left; margin: 10px 0;">
+                  <div class="similarity-matrix-container">
                   <p><b>Cosine Similarity Matrix:</b></p>
-  <pre style="display: inline-block; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">[[1.0       0.7073]
+  <pre class="similarity-matrix">[[1.0       0.7073]
  [0.7073    1.0]]</pre>
                   </div><br>
 
@@ -625,7 +625,7 @@ if __name__ == "__main__":
                   </p><br>
 
                   <div class="result-box">
-                    <h2>Similarity Score: <span style="color: green;">70.73%</span></h2>
+                    <h2>Similarity Score: <span class="similarity-score">70.73%</span></h2>
                   </div>
                 </div>
               </div>
@@ -759,8 +759,8 @@ if __name__ == "__main__":
                   </p><br>
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
-                  <div style="text-align: center;">
-                    <img src="images/TFIDF2.png" alt="TF-IDF Matrix" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 6px;">
+                  <div class="image-container">
+                    <img src="images/TFIDF2.png" alt="TF-IDF Matrix" class="tfidf-image">
                   </div>
                 </div>
                 <button class="reveal-step-btn">Calculate Cosine Similarity</button>
@@ -776,9 +776,9 @@ if __name__ == "__main__":
                   <p>
                     The result is presented in the form of a similarity matrix, where each element <code>(i, j)</code> represents the similarity between Document <code>i</code> and Document <code>j</code>. The matrix shown below is the actual cosine similarity matrix obtained in this case.
                   </p>
-                  <div style="text-align: left; margin: 10px 0;">
+                  <div class="similarity-matrix-container">
                   <p><b>Cosine Similarity Matrix:</b></p>
-  <pre style="display: inline-block; background: #f8f8f8; padding: 12px; border-radius: 6px; border: 1px solid #ccc;">[[1.0000   0.2913]
+  <pre class="similarity-matrix">[[1.0000   0.2913]
  [0.2913   1.0000]]</pre>
                   </div><br>
 
@@ -787,7 +787,7 @@ if __name__ == "__main__":
                   </p><br>
 
                   <div class="result-box">
-                    <h2>Similarity Score: <span style="color: green;">28.72%</span></h2>
+                    <h2>Similarity Score: <span class="similarity-score">28.72%</span></h2>
                   </div>
                 </div>
               </div>
@@ -801,184 +801,42 @@ if __name__ == "__main__":
               <div class="upload-content" id="upload-content1">
                 <div class="upload-icon">📤</div>
                 <h3 id="label1">Upload Image 1</h3>
-                <input type="file" id="image1" accept="image/*" style="display: none;">
+                <input type="file" id="image1" accept="image/*" class="image-input">
               </div>
-              <img id="preview1" style="display:none;">
+              <img id="preview1" class="preview-image">
             </div>
             <div class="box" id="box2">
               <div class="upload-content" id="upload-content2">
                 <div class="upload-icon">📤</div>
                 <h3 id="label2">Upload Image 2</h3>
-                <input type="file" id="image2" accept="image/*" style="display: none;">
+                <input type="file" id="image2" accept="image/*" class="image-input">
               </div>
-              <img id="preview2" style="display:none;">
+              <img id="preview2" class="preview-image">
             </div>
           </div>
 
-          <button onclick="extractText()">Extract Text</button>
+          <button id="extract-text-btn">Extract Text</button>
 
           <div class="contain">
             <div class="output-box" id="text1">Extracted Text 1</div>
             <div class="output-box" id="text2">Extracted Text 2</div>
           </div>
 
-          <button onclick="preprocessText()">Preprocess Text</button>
+          <button id="preprocess-text-btn">Preprocess Text</button>
 
           <div class="contain">
             <div class="output-box" id="pre1">Preprocessed Text 1</div>
             <div class="output-box" id="pre2">Preprocessed Text 2</div>
           </div>
 
-          <button onclick="calculateSimilarity()">Calculate Similarity</button>
+          <button id="calculate-similarity-btn">Calculate Similarity</button>
 
           <div class="scorecard" id="similarityResult">Similarity: Not Calculated</div>
           </div>
         </div>
       </div>
 
-      <script>
-        const imageInputs = [document.getElementById('image1'), document.getElementById('image2')];
-        const previews = [document.getElementById('preview1'), document.getElementById('preview2')];
-        const uploadContents = [document.getElementById('upload-content1'), document.getElementById('upload-content2')];
-        const texts = [document.getElementById('text1'), document.getElementById('text2')];
-        const preprocessed = [document.getElementById('pre1'), document.getElementById('pre2')];
-        const base64Images = [null, null];
-        const extractedTexts = ["", ""];
-
-        imageInputs.forEach((input, index) => {
-          const box = document.getElementById('box' + (index + 1));
-
-          const handleImage = file => {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              previews[index].src = e.target.result;
-              previews[index].style.display = 'block';
-              uploadContents[index].style.display = 'none';
-              base64Images[index] = e.target.result.replace(/^data:image\/(png|jpg|jpeg);base64,/, '');
-            };
-            reader.readAsDataURL(file);
-          };
-
-          input.addEventListener('change', function () {
-            if (this.files[0]) {
-              handleImage(this.files[0]);
-            }
-          });
-
-          ['dragenter', 'dragover'].forEach(eventName => {
-            box.addEventListener(eventName, e => {
-              e.preventDefault();
-              box.classList.add('dragover');
-            });
-          });
-
-          ['dragleave', 'drop'].forEach(eventName => {
-            box.addEventListener(eventName, e => {
-              e.preventDefault();
-              box.classList.remove('dragover');
-            });
-          });
-
-          box.addEventListener('drop', e => {
-            const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith('image/')) {
-              handleImage(file);
-            }
-          });
-
-          box.addEventListener('click', () => {
-            input.value = ''; // clear previous file to avoid double trigger
-            input.click();
-          });
-        });
-
-        async function extractText() {
-          const apiKey = 'K88181478588957';
-          for (let i = 0; i < 2; i++) {
-            if (!base64Images[i]) {
-              texts[i].innerText = 'No image selected';
-              continue;
-            }
-            texts[i].innerText = 'Extracting...';
-            const formData = new FormData();
-            formData.append('base64Image', 'data:image/jpeg;base64,' + base64Images[i]);
-            formData.append('language', 'eng');
-            formData.append('apikey', apiKey);
-            formData.append('OCREngine', 2);
-            try {
-              const response = await fetch('https://api.ocr.space/parse/image', {
-                method: 'POST',
-                body: formData
-              });
-              const result = await response.json();
-              const parsedText = result.ParsedResults?.[0]?.ParsedText || "No text found.";
-              extractedTexts[i] = parsedText;
-              texts[i].innerText = parsedText;
-            } catch (error) {
-              texts[i].innerText = 'Error during OCR';
-            }
-          }
-        }
-
-        async function preprocessText() {
-  const text1 = extractedTexts[0];
-  const text2 = extractedTexts[1];
-
-  if (!text1 || !text2) {
-    alert("Please extract text from both images first.");
-    return;
-  }
-
-  try {
-    const response = await fetch('http://127.0.0.1:5000/preprocess', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text1, text2 })
-    });
-
-    const result = await response.json();
-
-    // Only show preprocessed (lemmatized) text
-    preprocessed[0].innerText = result.step1.lemma;
-    preprocessed[1].innerText = result.step2.lemma;
-
-    // Clear similarity output for now
-    document.getElementById('similarityResult').innerText = "Similarity: Not Calculated";
-
-  } catch (error) {
-    console.error("Preprocessing failed:", error);
-    alert("Backend preprocessing error.");
-  }
-}
-
-
-async function calculateSimilarity() {
-  const pre1 = preprocessed[0].innerText;
-  const pre2 = preprocessed[1].innerText;
-
-  if (!pre1 || !pre2) {
-    alert("Please preprocess both texts first.");
-    return;
-  }
-
-  try {
-    const response = await fetch('http://127.0.0.1:5000/similarity', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text1: pre1, text2: pre2 })
-    });
-
-    const result = await response.json();
-    document.getElementById('similarityResult').innerText = `Similarity: ${Math.round(result.similarity * 100)}%`;
-
-  } catch (error) {
-    console.error("Similarity calculation failed:", error);
-    alert("Error while calculating similarity.");
-  }
-}
-
-
-      </script>
+      
 
 
       <!-- Results -->
@@ -1092,13 +950,6 @@ async function calculateSimilarity() {
       </div>
     </section>
   </div>
-  <script>
-    hljs.highlightAll();
-    function toggleMenu() {
-      const menu = document.querySelector(".nav-menu");
-      menu.classList.toggle("show");
-    }
-  </script>
   <script src="script.js"></script>
 </body>
 
