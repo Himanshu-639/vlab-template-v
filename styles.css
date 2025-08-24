@@ -741,7 +741,6 @@ button:hover {
 
 .step img {
   width: 100%;
-  max-width: 400px;
   border: 1px solid #ccc;
   margin-top: 10px;
 }

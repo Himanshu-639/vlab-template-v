@@ -102,7 +102,7 @@
         <div class="title">Theory & Applications</div>
         <div class="content">
           <p><br>
-            Text recognition from an image requires integration of <b>Optical Character Recognition (OCR)</b> and <b>Natural Language Processing (NLP)</b> techniques to compute the textual similarity between two images. The process involves extracting text from the image, preprocessing the text, converting it into a weighted vector representation using  a commonly used method <b>TF-IDF (Term Frequency-Inverse Document Frequency)</b>, and finally measuring their similarity using metric <b>Cosine Similarity</b>.
+            Text recognition from an image requires integration of <b>Optical Character Recognition (OCR)</b> and <b>Natural Language Processing (NLP)</b> techniques to compute the textual similarity between two images. The process involves extracting text from the image, pre-processing the text, converting it into a weighted vector representation using  a commonly used method <b>TF-IDF (Term Frequency-Inverse Document Frequency)</b>, and finally measuring their similarity using metric <b>Cosine Similarity</b>.
           </p>
 
           <span>Key Concepts</span>
@@ -114,7 +114,7 @@
                   deep learning techniques.</li>
                 <li><b>Functionality:</b> It converts pixel-level image data into text by recognizing
                   character shapes and structures.</li>
-                <li><b>Tool Used:</b> <b><a href="https://ocr.space/OCRAPI">OCR.space API</a></b> is used to perform high-accuracy text extraction including support for the handwritten content, and returns extracted text in a JSON format. While open-source libraries like Tesseract and EasyOCR can also be used for this task, they are primarily optimized for printed or clearly structured text and often underperform on real-world handwritten images. API OCR.space gives better results due to its training on diverse datasets.</li>
+                <li><b>Tool Used:</b> <b><a href="https://ocr.space/OCRAPI">OCR.space</a></b> API is used to perform high-accuracy text extraction including support for the handwritten content, and returns extracted text in a JSON format. While open-source libraries like Tesseract and EasyOCR can also be used for this task, they are primarily optimized for printed or clearly structured text and often underperform on real-world handwritten images. OCR.space API gives better results due to its training on diverse datasets.</li>
               </ul>
             </li>
 
@@ -123,7 +123,7 @@
                 <li><b>Definition:</b> NLP refers to the set of algorithms and processes that allow machines
                   to understand, interpret, and manipulate human language.</li>
                 <li><b>Library Used:</b> nltk (Natural Language Toolkit)</li>
-                <li><b>Text Preprocessing:</b> A crucial stage that prepares raw text for similarity analysis.
+                <li><b>Text Pre-processing:</b> A crucial stage that prepares raw text for similarity analysis.
                   It includes:
                   <ul>
                     <li><b>Lowercasing:</b> Converts all characters to lowercase to standardize the text.</li>
@@ -184,7 +184,7 @@
             <li>
               <b>Text-Based Image Comparison for Academic Integrity:</b>
               Educational platforms can use this system to compare scanned handwritten or printed assignments
-              to detect content overlap using cosine similarity on preprocessed TF-IDF vectors — useful for
+              to detect content overlap using cosine similarity on pre-processed TF-IDF vectors — useful for
               plagiarism detection where traditional text matching tools fail.
             </li>
             <li>
@@ -235,10 +235,10 @@
               </ul>
             </li>
 
-            <li><b>Preprocess the Extracted Text</b>
+            <li><b>Pre-process the Extracted Text</b>
               <ul>
-                <li>Click the <i>"Preprocess Text"</i> button.</li>
-                <li>The following preprocessing steps are applied to each extracted text:
+                <li>Click the <i>"Pre-process Text"</i> button.</li>
+                <li>The following pre-processing steps are applied to each extracted text:
                   <ul>
                     <li>Lowercasing</li>
                     <li>Removing punctuation and special characters</li>
@@ -253,7 +253,7 @@
 
             <li><b>Vectorize the Text using TF-IDF</b>
               <ul>
-                <li>The preprocessed texts from both images are converted into TF-IDF vectors referred as A and B respectively.</li>
+                <li>The pre-processed texts from both images are converted into TF-IDF vectors referred as A and B respectively.</li>
                 <li>Each term is assigned a numerical weight based on its importance in the document and rarity across
                   documents.</li>
               </ul>
@@ -376,7 +376,7 @@ def clean_extracted_text(text):
     cleaned_text = re.sub(r'[→V]', '', text)
     return cleaned_text.strip()
 
-# Preprocess text: lowercase, remove stopwords & punctuation, lemmatize
+# Pre-process text: lowercase, remove stopwords & punctuation, lemmatize
 def preprocess_text(text):
     text = text.lower()
     text = clean_extracted_text(text)
@@ -438,7 +438,7 @@ def upload_files():
         return jsonify({"error": "Failed to extract text from images"}), 500
 
     similarity_score = compare_tfidf_cosine(text1, text2)
-    print("Similarity Score", similarity_score)
+    print("Similarity Score :", similarity_score)
 
     return jsonify({"similarity_score": similarity_score})
 
@@ -511,15 +511,15 @@ if __name__ == "__main__":
                       <p><b>Image 2:</b><code>Input Unit\nCPU\nControl Unit\nArithmetic\n& Logic Unit\nMemory Unit\nOutput Unit</code></p>
                     </div>
                   </div>
-                  <p><br><b>Note:</b> The \n symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
+                  <p><br><b>Note:</b> The <b>"\n"</b> symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
                 </div>
-                <button class="reveal-step-btn">Preprocess Text</button>
+                <button class="reveal-step-btn">Pre-process Text</button>
               </div>
 
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    Before comparing the extracted texts, preprocessing is essential to clean and standardize the content. 
+                    Before comparing the extracted texts, pre-processing is essential to clean and standardize the content. 
                     This step ensures that insignificant variations (like punctuation or casing) do not affect the similarity result.
                   </p>
                 
@@ -579,7 +579,7 @@ if __name__ == "__main__":
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    The cleaned tokens obtained after all preprocessing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
+                    The cleaned tokens obtained after all pre-processing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
                     TF-IDF helps in assigning weights to words based on their importance — terms that are frequent in a document but rare across other documents are given more significance.
                   </p>
 
@@ -593,7 +593,7 @@ if __name__ == "__main__":
 
                   <p>
                     <i>Note:</i> You may notice a slight change in the formula of IDF compared to the traditional form.
-                    This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>sklearn</code>'s <code>TfidfVectorizer</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
+                    This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>TfidfVectorizer</code> from <code>sklearn library</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
                   </p><br>
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
@@ -607,7 +607,7 @@ if __name__ == "__main__":
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    After converting the preprocessed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
+                    After converting the pre-processed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
                     Using Cosine Similarity Formula:
                   </p>
                   <pre><code>cos(θ) = (A · B) / (||A|| × ||B||)</code></pre><br>
@@ -673,15 +673,15 @@ if __name__ == "__main__":
                       <p><b>Image 2:</b><code>A transaction is a set of database\noperations done\nas one unit\nIt follows ACID Property.\nAtomicity, Consistency\nIsolation, Durability</code></p>
                     </div>
                   </div>
-                  <p><br><b>Note:</b> The \n symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
+                  <p><br><b>Note:</b> The <b>"\n"</b> symbols in the extracted text represent line breaks, indicating where a new line begins in the original image content.</p>
                 </div>
-                <button class="reveal-step-btn">Preprocess Text</button>
+                <button class="reveal-step-btn">Pre-process Text</button>
               </div>
 
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    Before comparing the extracted texts, preprocessing is essential to clean and standardize the content. 
+                    Before comparing the extracted texts, pre-processing is essential to clean and standardize the content. 
                     This step ensures that insignificant variations (like punctuation or casing) do not affect the similarity result.
                   </p>
                 
@@ -741,7 +741,7 @@ if __name__ == "__main__":
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    The cleaned tokens obtained after all preprocessing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
+                    The cleaned tokens obtained after all pre-processing steps are now transformed into numerical vectors using <b>TF-IDF (Term Frequency – Inverse Document Frequency)</b>. 
                     TF-IDF helps in assigning weights to words based on their importance — terms that are frequent in a document but rare across other documents are given more significance.
                   </p>
 
@@ -755,7 +755,7 @@ if __name__ == "__main__":
 
                   <p>
                     <i>Note:</i> You may notice a slight change in the formula of IDF compared to the traditional form.
-                    This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>sklearn</code>'s <code>TfidfVectorizer</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
+                    This version — <code>log((N + 1) / (DF + 1)) + 1</code> — is commonly used in implementations like <code>TfidfVectorizer</code> from <code>sklearn library</code> to prevent division-by-zero and stabilize the values when working with small datasets. Adding 1 to both numerator and denominator is known as <b>smoothing</b>, and it helps ensure more balanced weight distribution across rare and common terms.
                   </p><br>
 
                   <p>The following matrix shows the TF-IDF weights assigned to each term in Image 1 and Image 2 after vectorization:</p>
@@ -769,7 +769,7 @@ if __name__ == "__main__":
               <div class="step-container">                
                 <div class="step">
                   <p>
-                    After converting the preprocessed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
+                    After converting the pre-processed text from both images into TF-IDF vectors, we compute the cosine similarity between them.
                     Using Cosine Similarity Formula:
                   </p>
                   <pre><code>cos(θ) = (A · B) / (||A|| × ||B||)</code></pre><br>
@@ -822,11 +822,11 @@ if __name__ == "__main__":
             <div class="output-box" id="text2">Extracted Text 2</div>
           </div>
 
-          <button id="preprocess-text-btn">Preprocess Text</button>
+          <button id="preprocess-text-btn">Pre-process Text</button>
 
           <div class="contain">
-            <div class="output-box" id="pre1">Preprocessed Text 1</div>
-            <div class="output-box" id="pre2">Preprocessed Text 2</div>
+            <div class="output-box" id="pre1">Pre-processed Text 1</div>
+            <div class="output-box" id="pre2">Pre-processed Text 2</div>
           </div>
 
           <button id="calculate-similarity-btn">Calculate Similarity</button>
@@ -854,7 +854,7 @@ if __name__ == "__main__":
           </ul>
         
           <p>
-            This result helps users understand the degree of similarity between scanned documents, handwritten notes, or printed forms. It highlights the impact of preprocessing (like stopword removal and tokenization) and shows how semantic closeness can be identified even when wording slightly varies.
+            This result helps users understand the degree of similarity between scanned documents, handwritten notes, or printed forms. It highlights the impact of pre-processing (like stopword removal and tokenization) and shows how semantic closeness can be identified even when wording slightly varies.
           </p>
         
           <p><br><b>Example:</b></p>
@@ -934,7 +934,7 @@ if __name__ == "__main__":
               <span>1. OCR.space API - for text extraction </span>
             </li>
             <li>
-              <span>2. NLTK (Natural Language Toolkit), v3.9.1 - for text preprocessing </span>
+              <span>2. NLTK (Natural Language Toolkit), v3.9.1 - for text pre-processing </span>
             </li>
             <li>
               <span>3. scikit-learn, v1.7.0 - for calculating similarity </span>
